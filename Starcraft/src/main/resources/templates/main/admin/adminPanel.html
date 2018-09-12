@@ -1,0 +1,25 @@
+<html>
+<title>News</title>
+<head xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<meta charset="UTF-8">
+<title>Title</title>
+
+<link rel="stylesheet" href="/styles/bootstrap.css">
+
+</head>
+<body>
+	<div th:include="fragments/navbar"></div>
+	<br>
+	
+	<div class="col-sm-4">
+		<div class="list-group">
+			<a href="/addArticle" class="list-group-item list-group-item-action active">Add article</a>
+		</div>
+	</div>
+	
+	<br>
+	<footer th:include="fragments/footer"></footer>
+</body>
+</html>
