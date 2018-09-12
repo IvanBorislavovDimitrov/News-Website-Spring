@@ -1,0 +1,35 @@
+<html>
+<title>News</title>
+<head xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<meta charset="UTF-8">
+<title>Title</title>
+
+<link rel="stylesheet" href="/styles/bootstrap.css">
+
+</head>
+<body>
+	<div th:include="fragments/navbar"></div>
+	<br>
+
+	<h1>Edit article</h1>
+	<legend>Legend</legend>
+	<form method="post" th:action="@{/addComment} + '/' + ${article.id} + '/' + ${user}">
+		
+		<div class="form-group">
+			<label>Comment: </label>
+			<div class="col-sm-4">
+				<textarea class="form-control" name="value" rows="8"></textarea>
+			</div>
+		</div>
+
+		<button type="submit" class="btn btn-primary">Comment</button>
+		<a class="btn btn-danger btn-md"
+			th:href="@{/article/{id}(id=${article.getId()})}" role="button">Cancel</a>
+	</form>
+
+	<br>
+	<footer th:include="fragments/footer"></footer>
+</body>
+</html>
