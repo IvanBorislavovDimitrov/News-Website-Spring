@@ -31,11 +31,18 @@ public class User {
 	@Basic
 	private String lastName;
 
+	@Basic
+	private int age;
+
+	@Basic
+	private String city;
+
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Comment.class, mappedBy = "user")
 	private List<Comment> comments;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "users", targetEntity = Privilege.class)
-    private Set<Privilege> privileges;
+	@ManyToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST,
+			CascadeType.REFRESH }, fetch = FetchType.EAGER, mappedBy = "users", targetEntity = Privilege.class)
+	private Set<Privilege> privileges;
 
 	public User() {
 		this.comments = new ArrayList<>();
@@ -105,6 +112,21 @@ public class User {
 	public void setPrivileges(Set<Privilege> privileges) {
 		this.privileges = privileges;
 	}
-	
-	
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
 }

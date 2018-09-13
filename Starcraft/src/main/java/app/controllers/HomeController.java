@@ -25,9 +25,8 @@ public class HomeController {
 		List<ArticleDto> news = this.articleService.getAll();
 		news.sort((d1, d2) -> d2.getDate().compareTo(d1.getDate()));
 		model.addAttribute("news", news);
-		
+
 		return "main/news";
 	}
-	
 
 }

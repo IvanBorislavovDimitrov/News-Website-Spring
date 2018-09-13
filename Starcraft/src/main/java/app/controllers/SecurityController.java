@@ -15,41 +15,41 @@ import app.services.api.UserService;
 
 @Controller
 public class SecurityController {
-	
+
 	private final UserService userService;
-	
+
 	@Autowired
 	public SecurityController(UserService userService) {
 		this.userService = userService;
 	}
-	
+
 	@PostMapping(value = "/register")
 	public String registerUser(RegisterUserDto registerUserDto) {
 		this.userService.register(registerUserDto);
-		
+
 		return "redirect:/login";
 	}
-	
+
 	@GetMapping(value = "/register")
 	public String loadRegisterPage() {
-		
-		return "main/register";
+
+		return "main/user/register";
 	}
 
 	@GetMapping(value = "/login")
 	public String loadLoginPage() {
-		
-		return "main/login";
+
+		return "main/user/login";
 	}
-	
+
 	@GetMapping(value = "/logout")
 	public String logout(HttpServletRequest request, HttpServletResponse response) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		
+
 		if (authentication != null) {
 			new SecurityContextLogoutHandler().logout(request, response, authentication);
 		}
-		
+
 		return "redirect:/";
 	}
 }

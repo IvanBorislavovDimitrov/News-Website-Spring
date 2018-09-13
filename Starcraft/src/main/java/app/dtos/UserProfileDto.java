@@ -1,37 +1,20 @@
 package app.dtos;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
-public class RegisterUserDto {
+public class UserProfileDto {
 
-	@Size(min = 3, max = 50)
 	private String username;
-	
-	@Pattern(regexp = "[A-Za-z0-9]+@[A-Za-z]{2,}(\\.[a-zA-Z]{2,})+")
 	private String email;
-	
-	@Size(min = 3, max = 50)
-	private String password;
-
-	@Size(min = 3, max = 50)
 	private String firstName;
-
-	@Size(min = 3, max = 50)
 	private String lastName;
-	
-	@Min(value = 0)
-	@Max(value = 150)
 	private int age;
-	
-	@NotNull
 	private String city;
-	
-	public RegisterUserDto() {
-		
+	private List<CommentDto> comments;
+
+	public UserProfileDto() {
+		this.comments = new ArrayList<>();
 	}
 
 	public String getUsername() {
@@ -48,14 +31,6 @@ public class RegisterUserDto {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public String getFirstName() {
@@ -88,6 +63,14 @@ public class RegisterUserDto {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public List<CommentDto> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<CommentDto> comments) {
+		this.comments = comments;
 	}
 	
 	
