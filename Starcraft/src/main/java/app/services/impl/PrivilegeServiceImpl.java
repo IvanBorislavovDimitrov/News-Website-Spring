@@ -56,7 +56,6 @@ public class PrivilegeServiceImpl implements PrivilegeService {
 				
 				privilege.getUsers().removeIf(p -> p.getUsername().equals(username));
 				this.update(privilege);
-				String f = "";
 			}
 		}
 	}

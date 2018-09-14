@@ -21,7 +21,7 @@ public class Article {
 	@Basic
 	private String name;
 
-	@Column(name = "description", length = 5000)
+	@Column(name = "description", columnDefinition="LONGTEXT")
 	private String description;
 
 	@Basic

@@ -11,56 +11,65 @@
 	<div th:include="fragments/navbar"></div>
 	<br>
 
-	<h1>Delete Profile</h1>
-	<form method="POST"
-		th:action="@{/deleteProfile/{username}(username=${user.getUsername()})}">
-		<div class="form-group row">
-			<label class="col-sm-2 col-form-label">Username</label>
-			<div class="col-sm-2">
-				<input class="form-control" type="text" name="username" th:value="${user.getUsername()}" disabled="disabled" />
-			</div>
-		</div>
-		<div class="form-group row">
-			<label class="col-sm-2 col-form-label">Email</label>
-			<div class="col-sm-2">
-				<input class="form-control" type="text" name="email" th:value="${user.getEmail()}" disabled="disabled" />
-			</div>
-		</div>
-		<div class="form-group row">
-			<label class="col-sm-2 col-form-label">Password</label>
-			<div class="col-sm-2">
-				<input class="form-control" type="password" name="password" disabled="disabled" />
-			</div>
-		</div>
-		<div class="form-group row">
-			<label class="col-sm-2 col-form-label">First name</label>
-			<div class="col-sm-2">
-				<input class="form-control" type="text" name="firstName" th:value="${user.getFirstName()}" disabled="disabled" />
-			</div>
-		</div>
-		<div class="form-group row">
-			<label class="col-sm-2 col-form-label">Last name</label>
-			<div class="col-sm-2">
-				<input class="form-control" type="text" name="lastName" th:value="${user.getLastName()}" disabled="disabled" />
-			</div>
-		</div>
-		<div class="form-group row">
-			<label class="col-sm-2 col-form-label">Age</label>
-			<div class="col-sm-2">
-				<input class="form-control" type="text" name="age" th:value="${user.getAge()}" disabled="disabled" />
-			</div>
-		</div>
-		<div class="form-group row">
-			<label class="col-sm-2 col-form-label">City</label>
-			<div class="col-sm-2">
-				<input class="form-control" type="text" name="city" th:value="${user.getCity()}" disabled="disabled" />
-			</div>
-		</div>
+	<div class="container body-content span=8 offset=2">
 
-		<input class="btn btn-danger" type="submit" name="value"
-			value="Delete" />
-	</form>
+		<h1>Delete Profile</h1>
+		<form method="POST"
+			th:action="@{/deleteProfile/{username}(username=${user.getUsername()})}">
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Username</label>
+				<div class="col-sm-2">
+					<input class="form-control" type="text" name="username"
+						th:value="${user.getUsername()}" disabled="disabled" />
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Email</label>
+				<div class="col-sm-2">
+					<input class="form-control" type="text" name="email"
+						th:value="${user.getEmail()}" disabled="disabled" />
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Password</label>
+				<div class="col-sm-2">
+					<input class="form-control" type="password" name="password"
+						disabled="disabled" />
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">First name</label>
+				<div class="col-sm-2">
+					<input class="form-control" type="text" name="firstName"
+						th:value="${user.getFirstName()}" disabled="disabled" />
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Last name</label>
+				<div class="col-sm-2">
+					<input class="form-control" type="text" name="lastName"
+						th:value="${user.getLastName()}" disabled="disabled" />
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Age</label>
+				<div class="col-sm-2">
+					<input class="form-control" type="text" name="age"
+						th:value="${user.getAge()}" disabled="disabled" />
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">City</label>
+				<div class="col-sm-2">
+					<input class="form-control" type="text" name="city"
+						th:value="${user.getCity()}" disabled="disabled" />
+				</div>
+			</div>
 
+			<input class="btn btn-danger" type="submit" name="value"
+				value="Delete" />
+		</form>
+	</div>
 
 	<br>
 	<footer th:include="fragments/footer"></footer>
