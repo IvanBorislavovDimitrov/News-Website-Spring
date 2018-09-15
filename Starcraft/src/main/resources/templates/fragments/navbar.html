@@ -22,10 +22,9 @@
       <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
         <a class="nav-link" href="/adminPanel">Admin panel</a>
       </li>
- 
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search for news">
+    <form class="form-inline my-2 my-lg-0" method="GET" th:action="@{/}">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search for news" name="articleName">
       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>

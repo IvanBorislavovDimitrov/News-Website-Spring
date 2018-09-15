@@ -10,20 +10,21 @@
 <body>
 	<div th:include="fragments/navbar"></div>
 	<br>
+
 	<h2
 		th:text="${user.getUsername()} + '\'s profle (' + ${user.getFirstName()} + ' ' + ${user.getLastName()} + ')'"></h2>
 	<div class="col-md-12">
-		<div class="text-white">
+		<div class="text-black">
 			<span>E-mail: </span> <span th:text="${user.getEmail()}"></span>
 		</div>
 	</div>
 	<div class="col-md-12">
-		<div class="text-white">
+		<div class="text-black">
 			<span>Age: </span> <span th:text="${user.getAge()}"></span>
 		</div>
 	</div>
 	<div class="col-md-12">
-		<div class="text-white">
+		<div class="text-black">
 			<span>City: </span> <span th:text="${user.getCity()}"></span>
 		</div>
 	</div>
@@ -33,6 +34,7 @@
 	<a class="btn btn-danger btn-md"
 		th:href="@{deleteProfile} + '/' + ${user.getUsername()}" role="button">Delete</a>
 	<br>
+
 	<footer th:include="fragments/footer"></footer>
 </body>
 </html>

@@ -29,6 +29,7 @@
 			<input class="btn btn-primary" type="submit" name="value"
 				value="Login" />
 		</form>
+		<h3 th:if="${loginError}">Invalid username or pasword!</h3>
 	</div>
 
 	<br><footer th:include="fragments/footer"></footer>

@@ -45,6 +45,7 @@ public class ArticlesController {
 	}
 
 	@GetMapping(value = "/article/{articleId}")
+	@PreAuthorize("isAuthenticated()")
 	public String loadArticleDetailsPage(@PathVariable String articleId, Model model) {
 		ArticleDto articleDto = this.articleService.getbyId(Integer.parseInt(articleId));
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -59,6 +60,7 @@ public class ArticlesController {
 	}
 
 	@GetMapping(value = "/editArticle/{articleId}")
+	@PreAuthorize("isAuthenticated()")
 	public String loadEditArticlePage(@PathVariable String articleId, Model model) {
 		ArticleDto articleDto = this.articleService.getbyId(Integer.parseInt(articleId));
 		model.addAttribute("article", articleDto);
@@ -67,6 +69,7 @@ public class ArticlesController {
 	}
 
 	@PostMapping(value = "/editArticle/{articleId}")
+	@PreAuthorize("isAuthenticated()")
 	public String editArticle(@PathVariable String articleId, RegisterArticleDto editedArticleInfo) {
 		this.articleService.editArticle(Integer.parseInt(articleId), editedArticleInfo);
 
@@ -74,6 +77,7 @@ public class ArticlesController {
 	}
 
 	@GetMapping(value = "/deleteArticle/{articleId}")
+	@PreAuthorize("isAuthenticated()")
 	public String loadDeleteArticlePage(@PathVariable String articleId, Model model) {
 		ArticleDto articleDto = this.articleService.getbyId(Integer.parseInt(articleId));
 		model.addAttribute("article", articleDto);
@@ -82,6 +86,7 @@ public class ArticlesController {
 	}
 
 	@PostMapping(value = "/deleteArticle/{articleId}")
+	@PreAuthorize("isAuthenticated()")
 	public String deleteArticle(@PathVariable String articleId, RegisterArticleDto editedArticleInfo) {
 		this.articleService.deleteArticle(Integer.parseInt(articleId));
 
@@ -89,6 +94,7 @@ public class ArticlesController {
 	}
 
 	@GetMapping(value = "/addComment/{articleId}/{username}")
+	@PreAuthorize("isAuthenticated()")
 	public String loadAddCommentPage(@PathVariable String articleId, @PathVariable String username, Model model) {
 		ArticleDto articleDto = this.articleService.getbyId(Integer.parseInt(articleId));
 		model.addAttribute("article", articleDto);
@@ -98,6 +104,7 @@ public class ArticlesController {
 	}
 
 	@PostMapping(value = "/addComment/{articleId}/{username}")
+	@PreAuthorize("isAuthenticated()")
 	public String addComment(@PathVariable(name = "articleId") String articleId,
 			@PathVariable(name = "username") String username, CommentDto comment) {
 		comment.setUsername(username);
