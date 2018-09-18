@@ -18,39 +18,37 @@ import app.services.api.UserService;
 @Controller
 public class SecurityController {
 
-	private final UserService userService;
+    private final UserService userService;
 
-	@Autowired
-	public SecurityController(UserService userService) {
-		this.userService = userService;
-	}
+    @Autowired
+    public SecurityController(UserService userService) {
+        this.userService = userService;
+    }
 
+    @GetMapping(value = "/login")
+    public String loadLoginPage() {
 
+        return "main/user/login";
+    }
 
-	@GetMapping(value = "/login")
-	public String loadLoginPage() {
+    @GetMapping(value = "/logout")
+    @PreAuthorize("isAuthenticated()")
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-		return "main/user/login";
-	}
+        if (authentication != null) {
+            new SecurityContextLogoutHandler().logout(request, response, authentication);
+        }
 
-	@GetMapping(value = "/logout")
-	@PreAuthorize("isAuthenticated()")
-	public String logout(HttpServletRequest request, HttpServletResponse response) {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return "redirect:/";
+    }
 
-		if (authentication != null) {
-			new SecurityContextLogoutHandler().logout(request, response, authentication);
-		}
+    @GetMapping(value = "/login-error")
+    @PreAuthorize("isAuthenticated()")
+    public String loadLoginErrorPage(Model model) {
+        model.addAttribute("loginError", true);
 
-		return "redirect:/";
-	}
-	
-	@GetMapping(value = "/login-error")
-	@PreAuthorize("isAuthenticated()")
-	public String loadLoginErrorPage(Model model) {
-		model.addAttribute("loginError", true);
-		
-		return "/main/user/login";
-	}
-	
+        return "/main/user/login";
+    }
+
 }

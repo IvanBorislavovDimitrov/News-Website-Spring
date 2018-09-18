@@ -5,64 +5,64 @@ import java.util.Date;
 import java.util.List;
 
 public class ArticleDto {
-	
-	private int id;
-	private String name;
-	private String description;
-	private String date;
-	private List<CommentDto> comments;
-	
-	public ArticleDto() {
-		this.comments = new ArrayList<>();
-	}
-	
-	public ArticleDto(int id, String name, String description, String date) {
-		this();
-		this.id = id;
-		this.name = name;
-		this.description = description;
-		this.date = date;
-	}
 
-	public String getName() {
-		return name;
-	}
+    private int id;
+    private String name;
+    private String description;
+    private String date;
+    private List<CommentDto> comments;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public ArticleDto() {
+        this.comments = new ArrayList<>();
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public ArticleDto(int id, String name, String description, String date) {
+        this();
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.date = date;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getDate() {
-		return date;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setDate(String date) {
-		this.date = date;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public List<CommentDto> getComments() {
-		return comments;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setComments(List<CommentDto> comments) {
-		this.comments = comments;
-	}
+    public String getDate() {
+        return date;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public void setDate(String date) {
+        this.date = date;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public List<CommentDto> getComments() {
+        return comments;
+    }
 
-	
+    public void setComments(List<CommentDto> comments) {
+        this.comments = comments;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
 }

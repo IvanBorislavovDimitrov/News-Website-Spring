@@ -13,18 +13,18 @@ import app.services.api.ArticleService;
 @Controller
 public class AdminController {
 
-	private final ArticleService articleService;
+    private final ArticleService articleService;
 
-	@Autowired
-	public AdminController(ArticleService articleService) {
-		this.articleService = articleService;
-	}
+    @Autowired
+    public AdminController(ArticleService articleService) {
+        this.articleService = articleService;
+    }
 
-	@GetMapping(value = "/adminPanel")
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public String loadAdminPanel() {
+    @GetMapping(value = "/adminPanel")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public String loadAdminPanel() {
 
-		return "main/admin/adminPanel";
-	}
+        return "main/admin/adminPanel";
+    }
 
 }

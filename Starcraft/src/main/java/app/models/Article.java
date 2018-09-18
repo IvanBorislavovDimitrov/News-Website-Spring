@@ -13,66 +13,66 @@ import org.hibernate.annotations.OnDeleteAction;
 @Table(name = "news")
 public class Article {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
 
-	@Basic
-	private String name;
+    @Basic
+    private String name;
 
-	@Column(name = "description", columnDefinition="LONGTEXT")
-	private String description;
+    @Column(name = "description", columnDefinition = "LONGTEXT")
+    private String description;
 
-	@Basic
-	private Date date;
+    @Basic
+    private Date date;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Comment.class, mappedBy = "article")
-	@OnDelete(action = OnDeleteAction.CASCADE)
-	private List<Comment> comments;
-	
-	public Article() {
-		this.comments = new ArrayList<>();
-	}
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Comment.class, mappedBy = "article")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private List<Comment> comments;
 
-	public int getId() {
-		return id;
-	}
+    public Article() {
+        this.comments = new ArrayList<>();
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public Date getDate() {
-		return date;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setDate(Date date) {
-		this.date = date;
-	}
+    public Date getDate() {
+        return date;
+    }
 
-	public List<Comment> getComments() {
-		return comments;
-	}
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
 
 }

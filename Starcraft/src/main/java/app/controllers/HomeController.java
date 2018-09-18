@@ -16,27 +16,27 @@ import app.services.api.ArticleService;
 @Controller
 public class HomeController {
 
-	private final ArticleService articleService;
+    private final ArticleService articleService;
 
-	@Autowired
-	public HomeController(ArticleService articleService) {
-		this.articleService = articleService;
-	}
+    @Autowired
+    public HomeController(ArticleService articleService) {
+        this.articleService = articleService;
+    }
 
-	@RequestMapping(value = "/")
-	public String home(@RequestParam(name = "articleName", required =  false) String articleName, Model model) {
-		List<ArticleDto> news = null;
-		if (articleName == null) {
-			news = this.articleService.getAll();
-		} else {
-			news = this.articleService.getAll().stream()
-					.filter(a -> a.getName().toLowerCase().contains(articleName.toLowerCase()))
-					.collect(Collectors.toList());
-		}
-		news.sort((d1, d2) -> d2.getDate().compareTo(d1.getDate()));
-		model.addAttribute("news", news);
+    @RequestMapping(value = "/")
+    public String home(@RequestParam(name = "articleName", required = false) String articleName, Model model) {
+        List<ArticleDto> news = null;
+        if (articleName == null) {
+            news = this.articleService.getAll();
+        } else {
+            news = this.articleService.getAll().stream()
+                    .filter(a -> a.getName().toLowerCase().contains(articleName.toLowerCase()))
+                    .collect(Collectors.toList());
+        }
+        news.sort((d1, d2) -> d2.getDate().compareTo(d1.getDate()));
+        model.addAttribute("news", news);
 
-		return "main/news";
-	}
+        return "main/news";
+    }
 
 }

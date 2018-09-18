@@ -21,37 +21,37 @@ import app.services.api.UserService;
 @Service
 public class CommentServiceImpl implements CommentService {
 
-	private final GenericRepository<Comment> commentService;
-	private final UserService userService;
-	private final ArticleService articleService;
-	
-	
-	@Autowired
-	public CommentServiceImpl(@Qualifier(value = "Comment")GenericRepository<Comment> commentService, UserService userService, ArticleService articleService) {
-		this.commentService = commentService;
-		this.userService = userService;
-		this.articleService = articleService;
-	}
-	
-	@Override
-	public void save(CommentDto commentDto, int articleId, String username) {
-		Comment comment = new Comment();
-		User user = this.userService.getByUsername(username);
-		Article article = this.articleService.getArticleById(articleId);
-		
-		comment.setValue(commentDto.getValue());
-		comment.setUser(user);
-		comment.setArticle(article);
-		String currentLocalDate = LocalDate.now().toString();
-		try {
-			comment.setDate(new SimpleDateFormat("yyyy-MM-dd").parse(currentLocalDate));
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		user.getComments().add(comment);
-		article.getComments().add(comment);
-		
-		this.commentService.save(comment);
-	}
+    private final GenericRepository<Comment> commentService;
+    private final UserService userService;
+    private final ArticleService articleService;
+
+
+    @Autowired
+    public CommentServiceImpl(@Qualifier(value = "Comment") GenericRepository<Comment> commentService, UserService userService, ArticleService articleService) {
+        this.commentService = commentService;
+        this.userService = userService;
+        this.articleService = articleService;
+    }
+
+    @Override
+    public void save(CommentDto commentDto, int articleId, String username) {
+        Comment comment = new Comment();
+        User user = this.userService.getByUsername(username);
+        Article article = this.articleService.getArticleById(articleId);
+
+        comment.setValue(commentDto.getValue());
+        comment.setUser(user);
+        comment.setArticle(article);
+        String currentLocalDate = LocalDate.now().toString();
+        try {
+            comment.setDate(new SimpleDateFormat("yyyy-MM-dd").parse(currentLocalDate));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        user.getComments().add(comment);
+        article.getComments().add(comment);
+
+        this.commentService.save(comment);
+    }
 
 }

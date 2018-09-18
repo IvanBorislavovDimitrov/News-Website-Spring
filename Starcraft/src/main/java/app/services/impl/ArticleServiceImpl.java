@@ -22,98 +22,98 @@ import app.validationUtil.ValidationUtil;
 @Service
 public class ArticleServiceImpl implements ArticleService {
 
-	private final GenericRepository<Article> articleRepository;
+    private final GenericRepository<Article> articleRepository;
 
-	@Autowired
-	public ArticleServiceImpl(@Qualifier("Article") GenericRepository<Article> articleRepository) {
-		this.articleRepository = articleRepository;
-	}
+    @Autowired
+    public ArticleServiceImpl(@Qualifier("Article") GenericRepository<Article> articleRepository) {
+        this.articleRepository = articleRepository;
+    }
 
-	@Override
-	public List<ArticleDto> getAll() {
-		return this.articleRepository.getAll().stream().map(n -> {
-			int desiredLength = n.getDescription().length() / 4 > 10 ? 10 : n.getDescription().length() / 4; 
-			String shortDescription = n.getDescription().substring(0, 0) + "...";
-			String dateString = n.getDate().toString();
-			dateString = dateString.substring(0, dateString.indexOf(" "));
-			ArticleDto newDto = new ArticleDto(n.getId(), n.getName(), shortDescription, dateString);
-			n.getComments().forEach(x -> {
-				CommentDto comment = new CommentDto(x.getUser().getUsername(), x.getValue());
-				newDto.getComments().add(comment);
-			});
+    @Override
+    public List<ArticleDto> getAll() {
+        return this.articleRepository.getAll().stream().map(n -> {
+            int desiredLength = n.getDescription().length() / 4 > 150 ? 150 : n.getDescription().length() / 4;
+            String shortDescription = n.getDescription().substring(0, desiredLength) + "...";
+            String dateString = n.getDate().toString();
+            dateString = dateString.substring(0, dateString.indexOf(" "));
+            ArticleDto newDto = new ArticleDto(n.getId(), n.getName(), shortDescription, dateString);
+            n.getComments().forEach(x -> {
+                CommentDto comment = new CommentDto(x.getUser().getUsername(), x.getValue());
+                newDto.getComments().add(comment);
+            });
 
-			return newDto;
-		}).collect(Collectors.toList());
-	}
+            return newDto;
+        }).limit(10).collect(Collectors.toList());
+    }
 
-	@Override
-	public void save(RegisterArticleDto articleDto) {
-		if (!ValidationUtil.isValid(articleDto)) {
-			throw new IllegalArgumentException("Invalid article!");
-		}
-		
-		Article article = new Article();
-		article.setName(articleDto.getName());
-		article.setDescription(articleDto.getDescription());
-		Date date = null;
-		try {
-			String asd = articleDto.getDate();
-			date = new SimpleDateFormat("yyyy-MM-dd").parse(articleDto.getDate());
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		article.setDate(date);
-		
-		this.articleRepository.save(article);
-	}
+    @Override
+    public void save(RegisterArticleDto articleDto) {
+        if (!ValidationUtil.isValid(articleDto)) {
+            throw new IllegalArgumentException("Invalid article!");
+        }
 
-	@Override
-	public ArticleDto getbyId(int id) {
-		Article article = this.articleRepository.getById(id);
-		ArticleDto articleDto = new ArticleDto();
-		articleDto.setId(article.getId());
-		articleDto.setName(article.getName());
-		articleDto.setDescription(article.getDescription());
-		String currentDate = article.getDate().toString();
-		currentDate = currentDate.substring(0, currentDate.indexOf(" "));
-		articleDto.setDate(currentDate);
-		article.getComments().forEach(c -> {
-			CommentDto commentDto = new CommentDto();
-			commentDto.setUsername(c.getUser().getUsername());
-			commentDto.setValue(c.getValue());
-			String date = LocalDate.now().toString();
-			commentDto.setDate(date);
-			articleDto.getComments().add(commentDto);
-		});
-		
-		return articleDto;
-	}
+        Article article = new Article();
+        article.setName(articleDto.getName());
+        article.setDescription(articleDto.getDescription());
+        Date date = null;
+        try {
+            String asd = articleDto.getDate();
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(articleDto.getDate());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        article.setDate(date);
 
-	@Override
-	public void editArticle(int id, RegisterArticleDto editedArticleInfo) {
-		Article article = this.articleRepository.getById(id);
-		article.setName(editedArticleInfo.getName());
-		article.setDescription(editedArticleInfo.getDescription());
-		
-		Date date = null;
-		try {
-			date = new SimpleDateFormat("yyyy-MM-dd").parse(editedArticleInfo.getDate());
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		article.setDate(date);
-		
-		this.articleRepository.update(article);
-	}
+        this.articleRepository.save(article);
+    }
 
-	@Override
-	public void deleteArticle(int id) {
-		this.articleRepository.deleteById(id);
-	}
+    @Override
+    public ArticleDto getbyId(int id) {
+        Article article = this.articleRepository.getById(id);
+        ArticleDto articleDto = new ArticleDto();
+        articleDto.setId(article.getId());
+        articleDto.setName(article.getName());
+        articleDto.setDescription(article.getDescription());
+        String currentDate = article.getDate().toString();
+        currentDate = currentDate.substring(0, currentDate.indexOf(" "));
+        articleDto.setDate(currentDate);
+        article.getComments().forEach(c -> {
+            CommentDto commentDto = new CommentDto();
+            commentDto.setUsername(c.getUser().getUsername());
+            commentDto.setValue(c.getValue());
+            String date = LocalDate.now().toString();
+            commentDto.setDate(date);
+            articleDto.getComments().add(commentDto);
+        });
 
-	@Override
-	public Article getArticleById(int articleId) {
-		return this.articleRepository.getById(articleId);
-	}
+        return articleDto;
+    }
+
+    @Override
+    public void editArticle(int id, RegisterArticleDto editedArticleInfo) {
+        Article article = this.articleRepository.getById(id);
+        article.setName(editedArticleInfo.getName());
+        article.setDescription(editedArticleInfo.getDescription());
+
+        Date date = null;
+        try {
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(editedArticleInfo.getDate());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        article.setDate(date);
+
+        this.articleRepository.update(article);
+    }
+
+    @Override
+    public void deleteArticle(int id) {
+        this.articleRepository.deleteById(id);
+    }
+
+    @Override
+    public Article getArticleById(int articleId) {
+        return this.articleRepository.getById(articleId);
+    }
 
 }

@@ -7,87 +7,87 @@ import javax.validation.constraints.Size;
 
 public class RegisterUserDto {
 
-	@Size(min = 2, max = 50)
-	private String username;
-	
-	@Pattern(regexp = "[A-Za-z0-9]+@[A-Za-z]{2,}(\\.[a-zA-Z]{2,})+")
-	private String email;
-	
-	@Size(min = 2, max = 50)
-	private String password;
+    @Size(min = 2, max = 50)
+    private String username;
 
-	@Size(min = 2, max = 50)
-	private String firstName;
+    @Pattern(regexp = "[A-Za-z0-9]+@[A-Za-z]{2,}(\\.[a-zA-Z]{2,})+")
+    private String email;
 
-	@Size(min = 2, max = 50)
-	private String lastName;
-	
-	@Min(value = 0)
-	@Max(value = 150)
-	private Integer age;
-	
-	@Size(min = 2, max = 50)
-	private String city;
-	
-	public RegisterUserDto() {
-		
-	}
+    @Size(min = 2, max = 50)
+    private String password;
 
-	public String getUsername() {
-		return username;
-	}
+    @Size(min = 2, max = 50)
+    private String firstName;
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    @Size(min = 2, max = 50)
+    private String lastName;
 
-	public String getEmail() {
-		return email;
-	}
+    @Min(value = 0)
+    @Max(value = 150)
+    private Integer age;
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    @Size(min = 2, max = 50)
+    private String city;
 
-	public String getPassword() {
-		return password;
-	}
+    public RegisterUserDto() {
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public Integer getAge() {
-		return age;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setAge(Integer age) {
-		this.age = age;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public String getCity() {
-		return city;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public void setCity(String city) {
-		this.city = city;
-	}
-	
-	
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+
 }

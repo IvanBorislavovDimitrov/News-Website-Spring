@@ -3,34 +3,34 @@ package app.dtos;
 import java.util.Date;
 
 public class RegisterArticleDto {
-	
-	private String name;
-	
-	private String description;
-	
-	private String date;
 
-	public String getName() {
-		return name;
-	}
+    private String name;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    private String description;
 
-	public String getDescription() {
-		return description;
-	}
+    private String date;
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getDate() {
-		return date;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setDate(String date) {
-		this.date = date;
-	}
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 }

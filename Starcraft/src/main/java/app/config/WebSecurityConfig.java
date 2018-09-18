@@ -14,13 +14,13 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-	private UserDetailsService userDetailsService;
+    private UserDetailsService userDetailsService;
 
     @Autowired
     public WebSecurityConfig(@Qualifier("userServiceImpl") UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
-    
+
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
