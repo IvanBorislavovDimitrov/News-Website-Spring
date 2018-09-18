@@ -1,47 +1,48 @@
 <html>
 <title>View article</title>
 <head xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<meta charset="UTF-8">
-<title>Title</title>
-<link rel="stylesheet" href="/styles/bootstrap.css">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/styles/bootstrap.css">
 </head>
 <body>
-	<div th:include="fragments/navbar"></div>
-	<br>
-	<div class="jumbotron">
-		<h3 class="display-3" th:text="${article.getName()}"></h3>
-		<h4 class="lead" th:text="${article.getDescription()}"></h4>
-		<hr class="my-4">
-		<h6 th:text="${article.getDate()}"></h6>
-		<br>
-		<p>
-			<a class="btn btn-primary btn-lg"
-				th:href="@{/addComment/} + ${article.getId()} + '/' + ${username}"
-				role="button">Add comment</a>
-		</p>
+<div th:include="fragments/navbar"></div>
+<br>
+<div class="jumbotron container">
+    <h3 class="display-3" th:text="${article.getName()}"></h3>
+    <h4 class="lead" th:text="${article.getDescription()}"></h4>
+    <hr class="my-4">
+    <h6 th:text="${article.getDate()}"></h6>
+    <br>
+    <p>
+        <a class="btn btn-primary btn-lg"
+           th:href="@{/addComment/} + ${article.getId()} + '/' + ${username}"
+           role="button">Add comment</a>
+    </p>
 
-		<div sec:authorize="hasRole('ROLE_ADMIN')">
-			<a class="btn btn-primary btn-lg"
-				th:href="@{/editArticle/} + ${article.getId()}" role="button">Edit</a>
-			<a class="btn btn-danger btn-lg"
-				th:href="@{/deleteArticle/} + ${article.getId()}" role="button">Delete</a>
-		</div>
-	</div>
-	<h2>Comments:</h2>
-	<br>
-	<div th:each="c : ${comments}">
-		<div class="card border-primary mb-3" style="max-width: 20rem;">
-			<div class="card-header" th:text="${c.getUsername()}"></div>
-			<div class="card-body">
-				<h5 class="card-title" th:text="${c.getValue()}"></h5>
-				<p class="card-text" th:text="${c.getDate()}"></p>
-			</div>
+    <div sec:authorize="hasRole('ROLE_ADMIN')">
+        <a class="btn btn-primary btn-lg"
+           th:href="@{/editArticle/} + ${article.getId()}" role="button">Edit</a>
+        <a class="btn btn-danger btn-lg"
+           th:href="@{/deleteArticle/} + ${article.getId()}" role="button">Delete</a>
+    </div>
+    <br>
+    <h2>Comments:</h2>
+    <br>
+    <div th:each="c : ${comments}">
+        <div class="card border-primary mb-3" style="max-width: 20rem;">
+            <div class="card-header" th:text="${c.getUsername()}"></div>
+            <div class="card-body">
+                <h5 class="card-title" th:text="${c.getValue()}"></h5>
+                <p class="card-text" th:text="${c.getDate()}"></p>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
 
-		</div>
-	</div>
-	<br>
-	<footer th:include="fragments/footer"></footer>
+<footer th:include="fragments/footer"></footer>
 </body>
 </html>
