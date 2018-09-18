@@ -32,7 +32,8 @@ public class ArticleServiceImpl implements ArticleService {
 	@Override
 	public List<ArticleDto> getAll() {
 		return this.articleRepository.getAll().stream().map(n -> {
-			String shortDescription = n.getDescription().substring(0, n.getDescription().length() / 4) + "...";
+			int desiredLength = n.getDescription().length() / 4 > 10 ? 10 : n.getDescription().length() / 4; 
+			String shortDescription = n.getDescription().substring(0, 0) + "...";
 			String dateString = n.getDate().toString();
 			dateString = dateString.substring(0, dateString.indexOf(" "));
 			ArticleDto newDto = new ArticleDto(n.getId(), n.getName(), shortDescription, dateString);

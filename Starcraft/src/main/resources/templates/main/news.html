@@ -11,7 +11,7 @@
 	<div th:include="fragments/navbar"></div>
 	<br>
 	<div th:each="n : ${news}">
-		<div class="jumbotron">
+		<div class="jumbotron container">
 			<h3 class="display-3" th:text="${n.getName()}"></h3>
 			<h4 class="lead" th:text="${n.getDescription()}"></h4>
 			<hr class="my-4">
