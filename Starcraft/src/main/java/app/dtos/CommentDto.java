@@ -2,6 +2,8 @@ package app.dtos;
 
 public class CommentDto {
 
+    private int id;
+    private int articleId;
     private String username;
     private String value;
     private String date;
@@ -39,5 +41,19 @@ public class CommentDto {
         this.date = date;
     }
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getArticleId() {
+        return articleId;
+    }
+
+    public void setArticleId(int articleId) {
+        this.articleId = articleId;
+    }
 }

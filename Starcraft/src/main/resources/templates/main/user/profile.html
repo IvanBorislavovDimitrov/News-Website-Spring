@@ -1,40 +1,41 @@
 <html>
 <title>Profile</title>
 <head xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<meta charset="UTF-8">
-<title>Title</title>
-<link rel="stylesheet" href="/styles/bootstrap.css">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/styles/bootstrap.css">
 </head>
 <body>
-	<div th:include="fragments/navbar"></div>
-	<br>
+<div th:include="fragments/navbar"></div>
+<br>
+<div class="jumbotron container">
+    <h2
+            th:text="${user.getUsername()} + '\'s profle (' + ${user.getFirstName()} + ' ' + ${user.getLastName()} + ')'"></h2>
+    <div class="col-md-12">
+        <div class="text-black">
+            <span>E-mail: </span> <span th:text="${user.getEmail()}"></span>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="text-black">
+            <span>Age: </span> <span th:text="${user.getAge()}"></span>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="text-black">
+            <span>City: </span> <span th:text="${user.getCity()}"></span>
+        </div>
+    </div>
+    <br>
+    <a class="btn btn-primary btn-md"
+       th:href="@{editProfile} + '/' + ${user.getUsername()}" role="button">Edit</a>
+    <a class="btn btn-danger btn-md"
+       th:href="@{deleteProfile} + '/' + ${user.getUsername()}" role="button">Delete</a>
+    <br>
+</div>
 
-	<h2
-		th:text="${user.getUsername()} + '\'s profle (' + ${user.getFirstName()} + ' ' + ${user.getLastName()} + ')'"></h2>
-	<div class="col-md-12">
-		<div class="text-black">
-			<span>E-mail: </span> <span th:text="${user.getEmail()}"></span>
-		</div>
-	</div>
-	<div class="col-md-12">
-		<div class="text-black">
-			<span>Age: </span> <span th:text="${user.getAge()}"></span>
-		</div>
-	</div>
-	<div class="col-md-12">
-		<div class="text-black">
-			<span>City: </span> <span th:text="${user.getCity()}"></span>
-		</div>
-	</div>
-	<br>
-	<a class="btn btn-primary btn-md"
-		th:href="@{editProfile} + '/' + ${user.getUsername()}" role="button">Edit</a>
-	<a class="btn btn-danger btn-md"
-		th:href="@{deleteProfile} + '/' + ${user.getUsername()}" role="button">Delete</a>
-	<br>
-
-	<footer th:include="fragments/footer"></footer>
+<footer th:include="fragments/footer"></footer>
 </body>
 </html>

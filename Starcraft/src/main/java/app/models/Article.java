@@ -27,7 +27,7 @@ public class Article {
     @Basic
     private Date date;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Comment.class, mappedBy = "article")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Comment.class, mappedBy = "article", orphanRemoval = true)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Comment> comments;
 

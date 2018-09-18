@@ -4,7 +4,7 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>View article</title>
     <link rel="stylesheet" href="/styles/bootstrap.css">
 </head>
 <body>
@@ -37,6 +37,19 @@
             <div class="card-body">
                 <h5 class="card-title" th:text="${c.getValue()}"></h5>
                 <p class="card-text" th:text="${c.getDate()}"></p>
+                <div th:if="${c.getUsername()} == ${#authentication.getPrincipal().getUsername()}">
+                    <a class="btn btn-primary btn-md" th:href="@{/editComment/} + ${c.getId()}">Edit</a>
+                </div>
+                <br>
+                <div sec:authorize="hasRole('ROLE_USER')">
+                    <div th:if="${c.getUsername()} == ${#authentication.getPrincipal().getUsername()}">
+                        <a class="btn btn-danger btn-md" th:href="@{/deleteComment/} + ${c.getId()}">Delete</a>
+                    </div>
+                </div>
+
+                <div sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a class="btn btn-danger btn-md" th:href="@{/deleteComment/} + ${c.getId()}">Delete</a>
+                </div>
             </div>
         </div>
     </div>

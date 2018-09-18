@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Set;
 
 import app.models.Privilege;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 
@@ -38,7 +40,8 @@ public class User {
     @Basic
     private String city;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Comment.class, mappedBy = "user")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Comment.class, mappedBy = "user", orphanRemoval = true)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Comment> comments;
 
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST,

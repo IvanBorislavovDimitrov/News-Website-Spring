@@ -1,86 +1,90 @@
 <html>
 <title>Register</title>
 <head xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<meta charset="UTF-8">
-<title>Title</title>
-<link rel="stylesheet" href="/styles/bootstrap.css">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/styles/bootstrap.css">
 </head>
 <body>
-	<div th:include="fragments/navbar"></div>
-	<br>
+<div th:include="fragments/navbar"></div>
+<br>
 
-	<div class="container body-content span=8 offset=2">
+<div class="jumbotron container">
+    <div class="container body-content span=8 offset=2">
 
-		<h1>Register Here</h1>
-		<form method="POST" th:action="@{/register}">
-			<div class="form-group">
-				<div class="form-group row">
-					<label class="col-sm-2 col-form-label">Username</label>
-					<div class="col-sm-2">
-						<input class="form-control" type="text" name="username" />
-					</div>
-				</div>
-				<small id="emailHelp" class="form-text text-muted">Once the
-					username is set it cannot be changed anymore!</small>
-			</div>
+        <h1>Register Here</h1>
+        <form method="POST" th:action="@{/register}">
+            <div class="form-group">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Username</label>
+                    <div class="col-sm-3">
+                        <input class="form-control" type="text" name="username"/>
+                    </div>
+                </div>
+                <small id="emailHelp" class="form-text text-muted">Once the
+                    username is set it cannot be changed anymore!
+                </small>
+            </div>
 
-			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Email</label>
-				<div class="col-sm-2">
-					<input class="form-control" type="text" name="email" />
-				</div>
-			</div>
-			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Password</label>
-				<div class="col-sm-2">
-					<input class="form-control" type="password" name="password" />
-				</div>
-			</div>
-			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">First name</label>
-				<div class="col-sm-2">
-					<input class="form-control" type="text" name="firstName" />
-				</div>
-			</div>
-			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Last name</label>
-				<div class="col-sm-2">
-					<input class="form-control" type="text" name="lastName" />
-				</div>
-			</div>
-			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Age</label>
-				<div class="col-sm-2">
-					<input class="form-control" type="text" name="age" />
-				</div>
-			</div>
-			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">City</label>
-				<div class="col-sm-2">
-					<input class="form-control" type="text" name="city" />
-				</div>
-			</div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-3">
+                    <input class="form-control" type="text" name="email"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-3">
+                    <input class="form-control" type="password" name="password"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">First name</label>
+                <div class="col-sm-3">
+                    <input class="form-control" type="text" name="firstName"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Last name</label>
+                <div class="col-sm-3">
+                    <input class="form-control" type="text" name="lastName"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Age</label>
+                <div class="col-sm-3">
+                    <input class="form-control" type="text" name="age"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">City</label>
+                <div class="col-sm-3">
+                    <input class="form-control" type="text" name="city"/>
+                </div>
+            </div>
 
-			<input class="btn btn-primary" type="submit" name="value"
-				value="Register" />
-		</form>
-		<div th:if="${registerError}">
-			<div class="alert alert-dismissible alert-warning">
-				<h4 class="alert-heading">Warning!</h4>
-				<p class="mb-0">Username must be between 2 and 50 symbols!</p>
-				<p class="mb-0">Email must be valid!</p>
-				<p class="mb-0">Password must be between 2 and 50 symbols</p>
-				<p class="mb-0">First name must be between 2 and 50 symbols</p>
-				<p class="mb-0">Last name must be between 2 and 50 symbols</p>
-				<p class="mb-0">Age must be between 0 and 150 symbols</p>
-				<p class="mb-0">City must be between 2 and 50 symbols</p>
-			</div>
-		</div>
-	</div>
+            <a class="btn btn-danger btn-md" href="/">Cancel</a>
+            <input class="btn btn-primary" type="submit" name="value"
+                   value="Register"/>
+        </form>
+        <div th:if="${registerError}">
+            <div class="alert alert-dismissible alert-warning">
+                <h4 class="alert-heading">Warning!</h4>
+                <p class="mb-0">Username must be between 2 and 50 symbols!</p>
+                <p class="mb-0">Email must be valid!</p>
+                <p class="mb-0">Password must be between 2 and 50 symbols</p>
+                <p class="mb-0">First name must be between 2 and 50 symbols</p>
+                <p class="mb-0">Last name must be between 2 and 50 symbols</p>
+                <p class="mb-0">Age must be between 0 and 150 symbols</p>
+                <p class="mb-0">City must be between 2 and 50 symbols</p>
+            </div>
+        </div>
+    </div>
+</div>
 
-	<br>
-	<footer th:include="fragments/footer"></footer>
+<br>
+<footer th:include="fragments/footer"></footer>
 </body>
 </html>

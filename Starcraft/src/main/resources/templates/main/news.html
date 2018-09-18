@@ -1,26 +1,27 @@
 <html>
 <title>News</title>
 <head xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<meta charset="UTF-8">
-<title>News</title>
-<link rel="stylesheet" href="/styles/bootstrap.css">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <meta charset="UTF-8">
+    <title>News</title>
+    <link rel="stylesheet" href="/styles/bootstrap.css">
 </head>
 <body>
-	<div th:include="fragments/navbar"></div>
-	<br>
-	<div th:each="n : ${news}">
-		<div class="jumbotron container">
-			<h3 class="display-3" th:text="${n.getName()}"></h3>
-			<h4 class="lead" th:text="${n.getDescription()}"></h4>
-			<hr class="my-4">
-			<h6 class="text-success" th:text="'Comments: ' + ${n.getComments().size()}"></h6>
-			<h6 th:text="${n.getDate()}"></h6><br>
-			<p><a class="btn btn-primary btn-lg" th:href="@{/article/} + ${n.getId()}" role="button">Learn more</a></p><br>
-			
-		</div>
-	</div>
-	<br><footer th:include="fragments/footer"></footer>
+<div th:include="fragments/navbar"></div>
+<br>
+<div th:each="n : ${news}">
+    <div class="jumbotron-fluid container">
+        <h3 class="display-3" th:text="${n.getName()}"></h3>
+        <h4 class="lead" th:text="${n.getDescription()}"></h4>
+        <hr class="my-4">
+        <h6 class="text-success" th:text="'Comments: ' + ${n.getComments().size()}"></h6>
+        <h6 th:text="${n.getDate()}"></h6><br>
+        <p><a class="btn btn-primary btn-lg" th:href="@{/article/} + ${n.getId()}" role="button">Learn more</a></p><br>
+
+    </div>
+</div>
+<br>
+<footer th:include="fragments/footer"></footer>
 </body>
 </html>

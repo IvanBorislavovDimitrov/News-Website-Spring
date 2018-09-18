@@ -39,6 +39,8 @@ public class ArticleServiceImpl implements ArticleService {
             ArticleDto newDto = new ArticleDto(n.getId(), n.getName(), shortDescription, dateString);
             n.getComments().forEach(x -> {
                 CommentDto comment = new CommentDto(x.getUser().getUsername(), x.getValue());
+                comment.setId(x.getId());
+                comment.setArticleId(x.getArticle().getId());
                 newDto.getComments().add(comment);
             });
 
@@ -57,7 +59,6 @@ public class ArticleServiceImpl implements ArticleService {
         article.setDescription(articleDto.getDescription());
         Date date = null;
         try {
-            String asd = articleDto.getDate();
             date = new SimpleDateFormat("yyyy-MM-dd").parse(articleDto.getDate());
         } catch (ParseException e) {
             e.printStackTrace();
@@ -68,7 +69,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public ArticleDto getbyId(int id) {
+    public ArticleDto getDtoById(int id) {
         Article article = this.articleRepository.getById(id);
         ArticleDto articleDto = new ArticleDto();
         articleDto.setId(article.getId());
@@ -81,8 +82,10 @@ public class ArticleServiceImpl implements ArticleService {
             CommentDto commentDto = new CommentDto();
             commentDto.setUsername(c.getUser().getUsername());
             commentDto.setValue(c.getValue());
+            commentDto.setId(c.getId());
             String date = LocalDate.now().toString();
             commentDto.setDate(date);
+            commentDto.setArticleId(c.getArticle().getId());
             articleDto.getComments().add(commentDto);
         });
 

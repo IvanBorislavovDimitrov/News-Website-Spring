@@ -11,7 +11,7 @@ public interface ArticleService {
 
 	void save(RegisterArticleDto article);
 	
-	ArticleDto getbyId(int id);
+	ArticleDto getDtoById(int id);
 	
 	void editArticle(int id, RegisterArticleDto editedArticleInfo);
 	

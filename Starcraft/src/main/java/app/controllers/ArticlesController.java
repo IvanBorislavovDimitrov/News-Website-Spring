@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import app.dtos.ArticleDto;
 import app.dtos.CommentDto;
 import app.dtos.RegisterArticleDto;
-import app.models.Comment;
 import app.services.api.ArticleService;
 import app.services.api.CommentService;
 
@@ -21,12 +20,10 @@ import app.services.api.CommentService;
 public class ArticlesController {
 
     private final ArticleService articleService;
-    private final CommentService commentService;
 
     @Autowired
-    public ArticlesController(ArticleService articleService, CommentService commentService) {
+    public ArticlesController(ArticleService articleService) {
         this.articleService = articleService;
-        this.commentService = commentService;
     }
 
     @GetMapping(value = "/addArticle")
@@ -47,7 +44,7 @@ public class ArticlesController {
     @GetMapping(value = "/article/{articleId}")
     @PreAuthorize("isAuthenticated()")
     public String loadArticleDetailsPage(@PathVariable String articleId, Model model) {
-        ArticleDto articleDto = this.articleService.getbyId(Integer.parseInt(articleId));
+        ArticleDto articleDto = this.articleService.getDtoById(Integer.parseInt(articleId));
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String currentlyLoggedUsername = auth.getName();
 
@@ -62,7 +59,7 @@ public class ArticlesController {
     @GetMapping(value = "/editArticle/{articleId}")
     @PreAuthorize("isAuthenticated()")
     public String loadEditArticlePage(@PathVariable String articleId, Model model) {
-        ArticleDto articleDto = this.articleService.getbyId(Integer.parseInt(articleId));
+        ArticleDto articleDto = this.articleService.getDtoById(Integer.parseInt(articleId));
         model.addAttribute("article", articleDto);
 
         return "/main/news/editArticle";
@@ -79,7 +76,7 @@ public class ArticlesController {
     @GetMapping(value = "/deleteArticle/{articleId}")
     @PreAuthorize("isAuthenticated()")
     public String loadDeleteArticlePage(@PathVariable String articleId, Model model) {
-        ArticleDto articleDto = this.articleService.getbyId(Integer.parseInt(articleId));
+        ArticleDto articleDto = this.articleService.getDtoById(Integer.parseInt(articleId));
         model.addAttribute("article", articleDto);
 
         return "/main/news/deleteArticle";
@@ -93,23 +90,4 @@ public class ArticlesController {
         return "redirect:/";
     }
 
-    @GetMapping(value = "/addComment/{articleId}/{username}")
-    @PreAuthorize("isAuthenticated()")
-    public String loadAddCommentPage(@PathVariable String articleId, @PathVariable String username, Model model) {
-        ArticleDto articleDto = this.articleService.getbyId(Integer.parseInt(articleId));
-        model.addAttribute("article", articleDto);
-        model.addAttribute("user", username);
-
-        return "/main/news/addComment";
-    }
-
-    @PostMapping(value = "/addComment/{articleId}/{username}")
-    @PreAuthorize("isAuthenticated()")
-    public String addComment(@PathVariable(name = "articleId") String articleId,
-                             @PathVariable(name = "username") String username, CommentDto comment) {
-        comment.setUsername(username);
-        this.commentService.save(comment, Integer.parseInt(articleId), username);
-
-        return "redirect:/" + "article/" + articleId;
-    }
 }

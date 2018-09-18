@@ -3,7 +3,6 @@ package app.services.impl;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -21,16 +20,29 @@ import app.services.api.UserService;
 @Service
 public class CommentServiceImpl implements CommentService {
 
-    private final GenericRepository<Comment> commentService;
+    private final GenericRepository<Comment> commentRepository;
     private final UserService userService;
     private final ArticleService articleService;
 
-
     @Autowired
-    public CommentServiceImpl(@Qualifier(value = "Comment") GenericRepository<Comment> commentService, UserService userService, ArticleService articleService) {
-        this.commentService = commentService;
+    public CommentServiceImpl(@Qualifier(value = "Comment") GenericRepository<Comment> commentRepository, UserService userService, ArticleService articleService) {
+        this.commentRepository = commentRepository;
         this.userService = userService;
         this.articleService = articleService;
+    }
+
+    @Override
+    public CommentDto getByIdForRemovePage(int id) {
+        Comment comment = this.commentRepository.getById(id);
+        CommentDto commentDto = new CommentDto();
+        String date = comment.getDate().toString().split("\\s+")[0];
+        commentDto.setDate(date);
+        commentDto.setValue(comment.getValue());
+        commentDto.setId(comment.getId());
+        commentDto.setArticleId(comment.getArticle().getId());
+        commentDto.setUsername(comment.getUser().getUsername());
+
+        return commentDto;
     }
 
     @Override
@@ -51,7 +63,24 @@ public class CommentServiceImpl implements CommentService {
         user.getComments().add(comment);
         article.getComments().add(comment);
 
-        this.commentService.save(comment);
+        this.commentRepository.save(comment);
     }
 
+    @Override
+    public void deleteComment(int commentId, int articleId, String username) {
+        Article article = this.articleService.getArticleById(articleId);
+        article.getComments().removeIf(c -> c.getId() == commentId);
+        User user = this.userService.getByUsername(username);
+        user.getComments().removeIf(c -> c.getId() == commentId);
+        Comment comment = this.commentRepository.getById(commentId);
+        this.commentRepository.delete(comment);
+    }
+
+    @Override
+    public void update(CommentDto commentDto) {
+        Comment comment = this.commentRepository.getById(commentDto.getId());
+        comment.setValue(commentDto.getValue());
+
+        this.commentRepository.update(comment);
+    }
 }
