@@ -94,12 +94,36 @@ public class ArticlesController {
     }
 
     @GetMapping(value = "/search")
-    public String loadSearchPageAndResults(@RequestParam("articleName") String articleName, Model model) {
+    public String loadSearchPageAndResults(@RequestParam("articleName") String articleName,
+            @RequestParam(name = "page", defaultValue = "1") String page, Model model) {
         List<ArticleDto> news = this.articleService.getAll().stream()
                 .filter(a -> a.getName().toLowerCase().contains(articleName.toLowerCase()))
                 .collect(Collectors.toList());
-        model.addAttribute("news", news);
+
+        int size = news.size();
+        int pagesCount = (int) Math.ceil(size / 2D);
+        Page[] pages = new Page[pagesCount];
+        int count = 0;
+        this.addArticlesToPages(news, pages, count);
+
+        int requiredPage = Integer.parseInt(page) - 1;
+
+        model.addAttribute("news", pages[requiredPage].getArticles());
+        model.addAttribute("pages", pages);
+        model.addAttribute("pageNumber", requiredPage + 1);
+        model.addAttribute("articleName", articleName);
 
         return "/main/news/search";
+    }
+
+    private void addArticlesToPages(List<ArticleDto> news, Page[] pages, int count) {
+        for (int i = 0; count < news.size(); i++) {
+            pages[i] = new Page();
+            pages[i].setNumber(i + 1);
+            pages[i].getArticles().add(news.get(count++));
+            if (count == news.size())
+                break;
+            pages[i].getArticles().add(news.get(count++));
+        }
     }
 }

@@ -12,7 +12,7 @@
 <br>
 <div th:each="n : ${page.articles}">
     <div class="jumbotron-fluid container">
-        <h5 class="display-3" th:text="${n.getName()}"></h5>
+        <h3 class="display-3" th:text="${n.getName()}"></h3>
         <h4 class="lead" th:text="${n.getDescription()}"></h4>
         <hr class="my-4">
         <h6 class="text-success" th:text="'Comments: ' + ${n.getComments().size()}"></h6>
