@@ -1,11 +1,12 @@
 package app.services.impl;
 
+import java.io.PipedReader;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import app.dtos.privilege_dtos.ChangePrivilegesDto;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,9 +14,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import app.dtos.CommentDto;
-import app.dtos.RegisterUserDto;
-import app.dtos.UserProfileDto;
+import app.dtos.comment_dtos.CommentDto;
+import app.dtos.user_dtos.RegisterUserDto;
+import app.dtos.user_dtos.UserProfileDto;
 import app.models.Privilege;
 import app.models.User;
 import app.repositories.GenericRepository;
@@ -25,6 +26,9 @@ import app.validationUtil.ValidationUtil;
 
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {
+
+    private static final String ROLE_USER = "USER";
+    private static final String ROLE_ADMIN = "ADMIN";
 
     private final GenericRepository<User> userRepository;
     private final PrivilegeService privilegeService;
@@ -75,21 +79,20 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
         this.privilegeService.createDefaultPrivilegesIfNeeded();
         if (this.userRepository.getAll().isEmpty()) {
-            Privilege privilege = this.privilegeService.getPrivilegeByName("ADMIN");
-            user.getPrivileges().add(privilege);
-            privilege.getUsers().add(user);
-            this.userRepository.save(user);
-
-            this.privilegeService.update(privilege);
+            this.updatePrivilege(user, ROLE_ADMIN);
 
         } else {
-            Privilege privilege = this.privilegeService.getPrivilegeByName("USER");
-            user.getPrivileges().add(privilege);
-            privilege.getUsers().add(user);
-            this.userRepository.save(user);
-
-            this.privilegeService.update(privilege);
+            this.updatePrivilege(user, ROLE_USER);
         }
+    }
+
+    private void updatePrivilege(User user, String role) {
+        Privilege privilege = this.privilegeService.getPrivilegeByName(role);
+        user.getPrivileges().add(privilege);
+        privilege.getUsers().add(user);
+        this.userRepository.save(user);
+
+        this.privilegeService.update(privilege);
     }
 
     @Override
@@ -100,6 +103,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public UserProfileDto getUserProfileDto(String username) {
         User user = this.getByUsername(username);
+        if (user == null) {
+            throw new IllegalArgumentException(String.format("User %s not found!", username));
+        }
         UserProfileDto userProfileDto = new UserProfileDto();
         userProfileDto.setUsername(user.getUsername());
         userProfileDto.setEmail(user.getEmail());
@@ -140,4 +146,44 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         this.userRepository.delete(user);
     }
 
+    @Override
+    public void changePrivileges(String username, ChangePrivilegesDto privilegesDto) {
+        User user = this.userRepository.getAll().stream()
+                .filter(u -> u.getUsername().equals(username))
+                .findFirst()
+                .orElse(null);
+        if (user == null) {
+            throw new IllegalArgumentException("User not found!");
+        }
+
+        Privilege privilegeAdmin = this.privilegeService.getPrivilegeByName(ROLE_ADMIN);
+        Privilege privilegeUser = this.privilegeService.getPrivilegeByName(ROLE_USER);
+
+        if (privilegesDto.isAdmin()) {
+            if (user.getPrivileges().stream().noneMatch(p -> p.getName().equals(privilegeAdmin.getName()))) {
+                user.getPrivileges().add(privilegeAdmin);
+                privilegeAdmin.getUsers().add(user);
+            }
+        } else {
+            user.getPrivileges().removeIf(p -> p.getName().equals(privilegeAdmin.getName()));
+            privilegeAdmin.getUsers().removeIf(u -> u.getUsername().equals(username));
+        }
+
+        this.userRepository.update(user);
+        this.privilegeService.update(privilegeAdmin);
+
+        if (privilegesDto.isUser()) {
+            if (user.getPrivileges().stream().noneMatch(p -> p.getName().equals(privilegeUser.getName()))) {
+                user.getPrivileges().add(privilegeUser);
+                privilegeUser.getUsers().add(user);
+            }
+        } else {
+            user.getPrivileges().removeIf(p -> p.getName().equals(privilegeUser.getName()));
+            privilegeUser.getUsers().removeIf(u -> u.getUsername().equals(username));
+        }
+
+        this.userRepository.update(user);
+        this.privilegeService.update(privilegeUser);
+
+    }
 }

@@ -1,4 +1,4 @@
-package app.dtos;
+package app.dtos.article_dtos;
 
 import java.util.Date;
 

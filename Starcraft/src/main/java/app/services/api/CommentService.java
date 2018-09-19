@@ -1,6 +1,6 @@
 package app.services.api;
 
-import app.dtos.CommentDto;
+import app.dtos.comment_dtos.CommentDto;
 
 public interface CommentService {
 

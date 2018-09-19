@@ -1,14 +1,13 @@
 package app.services.impl;
 
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
+import app.dtos.privilege_dtos.PrivilegeDto;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import app.models.Privilege;
-import app.models.User;
 import app.repositories.GenericRepository;
 import app.services.api.PrivilegeService;
 
@@ -58,5 +57,17 @@ public class PrivilegeServiceImpl implements PrivilegeService {
                 this.update(privilege);
             }
         }
+    }
+
+    @Override
+    public List<PrivilegeDto> getPrivilegeDtos() {
+        return this.privilegeRepository.getAll().stream()
+                .map(p -> {
+                    PrivilegeDto privilegeDto = new PrivilegeDto();
+                    privilegeDto.setId(p.getId());
+                    privilegeDto.setName(p.getName());
+
+                    return privilegeDto;
+                }).collect(Collectors.toList());
     }
 }

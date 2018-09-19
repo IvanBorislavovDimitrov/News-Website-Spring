@@ -1,4 +1,4 @@
-package app.dtos;
+package app.dtos.comment_dtos;
 
 public class CommentDto {
 

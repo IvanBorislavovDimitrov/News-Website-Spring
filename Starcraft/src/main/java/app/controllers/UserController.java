@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import app.dtos.RegisterArticleDto;
-import app.dtos.RegisterUserDto;
-import app.dtos.UserProfileDto;
+import app.dtos.user_dtos.RegisterUserDto;
+import app.dtos.user_dtos.UserProfileDto;
 import app.services.api.UserService;
 
 @Controller
@@ -103,8 +102,12 @@ public class UserController {
     @PreAuthorize("isAuthenticated()")
     public String deleteProfile(@PathVariable("username") String username) {
         this.userService.delete(username);
+        String currentlyLoggedUsername = SecurityContextHolder.getContext().getAuthentication().getName();
+        if (currentlyLoggedUsername.equals(username)) {
+            return "redirect:/logout";
+        }
 
-        return "redirect:/logout";
+        return "redirect:/";
     }
 
     @GetMapping(value = "/registerError")

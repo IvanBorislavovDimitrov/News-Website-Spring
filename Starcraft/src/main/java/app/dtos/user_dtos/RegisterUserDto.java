@@ -1,4 +1,4 @@
-package app.dtos;
+package app.dtos.user_dtos;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;

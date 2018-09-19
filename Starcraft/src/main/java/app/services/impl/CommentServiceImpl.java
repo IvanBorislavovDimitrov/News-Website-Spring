@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import app.dtos.CommentDto;
+import app.dtos.comment_dtos.CommentDto;
 import app.models.Article;
 import app.models.Comment;
 import app.models.User;

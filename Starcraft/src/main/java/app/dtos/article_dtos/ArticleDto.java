@@ -1,7 +1,8 @@
-package app.dtos;
+package app.dtos.article_dtos;
+
+import app.dtos.comment_dtos.CommentDto;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class ArticleDto {

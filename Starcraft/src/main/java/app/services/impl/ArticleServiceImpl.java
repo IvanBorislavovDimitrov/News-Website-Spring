@@ -11,9 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import app.dtos.ArticleDto;
-import app.dtos.CommentDto;
-import app.dtos.RegisterArticleDto;
+import app.dtos.article_dtos.ArticleDto;
+import app.dtos.comment_dtos.CommentDto;
+import app.dtos.article_dtos.RegisterArticleDto;
 import app.models.Article;
 import app.repositories.GenericRepository;
 import app.services.api.ArticleService;
@@ -45,7 +45,7 @@ public class ArticleServiceImpl implements ArticleService {
             });
 
             return newDto;
-        }).limit(10).collect(Collectors.toList());
+        }).collect(Collectors.toList());
     }
 
     @Override

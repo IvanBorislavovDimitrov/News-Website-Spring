@@ -1,4 +1,6 @@
-package app.dtos;
+package app.dtos.user_dtos;
+
+import app.dtos.comment_dtos.CommentDto;
 
 import java.util.ArrayList;
 import java.util.List;

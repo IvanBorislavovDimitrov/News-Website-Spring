@@ -1,7 +1,9 @@
 package app.services.api;
 
+import app.dtos.privilege_dtos.PrivilegeDto;
 import app.models.Privilege;
-import app.models.User;
+
+import java.util.List;
 
 public interface PrivilegeService {
 
@@ -12,4 +14,6 @@ public interface PrivilegeService {
 	void update(Privilege privilege);
 
 	void removeUser(String username);
+
+    List<PrivilegeDto> getPrivilegeDtos();
 }

@@ -1,19 +1,17 @@
 package app.controllers;
 
-import app.dtos.ArticleDto;
-import app.dtos.CommentDto;
+import app.dtos.article_dtos.ArticleDto;
+import app.dtos.comment_dtos.CommentDto;
 import app.services.api.ArticleService;
 import app.services.api.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class CommentController {

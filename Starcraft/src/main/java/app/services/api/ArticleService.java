@@ -2,7 +2,8 @@ package app.services.api;
 
 import java.util.List;
 
-import app.dtos.*;
+import app.dtos.article_dtos.ArticleDto;
+import app.dtos.article_dtos.RegisterArticleDto;
 import app.models.Article;
 
 public interface ArticleService {

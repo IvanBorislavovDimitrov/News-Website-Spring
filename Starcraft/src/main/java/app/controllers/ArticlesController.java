@@ -10,11 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import app.dtos.ArticleDto;
-import app.dtos.CommentDto;
-import app.dtos.RegisterArticleDto;
+import app.dtos.article_dtos.ArticleDto;
+import app.dtos.article_dtos.RegisterArticleDto;
 import app.services.api.ArticleService;
-import app.services.api.CommentService;
 
 @Controller
 public class ArticlesController {

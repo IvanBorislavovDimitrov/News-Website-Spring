@@ -46,10 +46,16 @@
         <a class="btn btn-danger btn-md"
            th:href="@{deleteProfile} + '/' + ${user.getUsername()}" role="button">Delete</a>
         <a class="btn btn-primary btn-md"
-            th:href="@{editProfilePrivileges} + '/' + ${user.getUsername()}">Edit privileges</a>
+           th:href="@{editProfilePage} + '/' + ${user.getUsername()}">Edit privileges</a>
         <br>
     </div>
 </div>
+<div class="container">
+    <div th:if="${userNotFound}">
+        <h3 th:text="${notFoundMessage}"></h3>
+    </div>
+</div>
+
 <br>
 <footer th:include="fragments/footer"></footer>
 </body>
