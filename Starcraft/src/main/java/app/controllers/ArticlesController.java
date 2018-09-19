@@ -100,6 +100,8 @@ public class ArticlesController {
                 .filter(a -> a.getName().toLowerCase().contains(articleName.toLowerCase()))
                 .collect(Collectors.toList());
 
+        news.sort((a1, a2) -> a2.getDate().compareTo(a1.getDate()));
+
         int size = news.size();
         int pagesCount = (int) Math.ceil(size / 2D);
         Page[] pages = new Page[pagesCount];

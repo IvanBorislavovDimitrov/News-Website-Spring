@@ -111,7 +111,6 @@ public class UserController {
     }
 
     @GetMapping(value = "/registerError")
-    @PreAuthorize("isAuthenticated()")
     public String loadRegisterErrorPage(Model model) {
         model.addAttribute("registerError", true);
 
