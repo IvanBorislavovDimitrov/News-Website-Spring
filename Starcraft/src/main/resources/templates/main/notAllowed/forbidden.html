@@ -1,0 +1,21 @@
+<html>
+<head xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <meta charset="UTF-8">
+    <title>Not allowed</title>
+    <link rel="stylesheet" href="/styles/bootstrap.css">
+</head>
+<body>
+<div th:include="fragments/navbar"></div>
+<br>
+
+<div class="jumbotron-fluid container">
+    <h1>You are not allowed to be here...</h1>
+    <a href="/">Back to Main</a>
+</div>
+
+<br>
+<footer th:include="fragments/footer"></footer>
+</body>
+</html>

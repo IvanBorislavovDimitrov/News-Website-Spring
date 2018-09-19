@@ -16,7 +16,6 @@
 <div class="jumbotron container">
     <div class="container body-content span=8 offset=2">
         <h1>Delete comment</h1>
-        <legend>Legend</legend>
         <form method="post" th:action="@{/editComment} + '/' + ${comment.id} + '/' + ${comment.articleId}">
 
             <div class="form-group">

@@ -11,8 +11,7 @@
 <div th:include="fragments/navbar"></div>
 <br>
 <div class="jumbotron container">
-    <h2
-            th:text="${user.getUsername()} + '\'s profle (' + ${user.getFirstName()} + ' ' + ${user.getLastName()} + ')'"></h2>
+    <h2 th:text="${user.getUsername()} + '\'s profle (' + ${user.getFirstName()} + ' ' + ${user.getLastName()} + ')'"></h2>
     <div class="col-md-12">
         <div class="text-black">
             <span>E-mail: </span> <span th:text="${user.getEmail()}"></span>

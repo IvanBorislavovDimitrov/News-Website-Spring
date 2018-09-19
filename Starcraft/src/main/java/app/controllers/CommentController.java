@@ -6,6 +6,7 @@ import app.services.api.ArticleService;
 import app.services.api.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,14 +49,27 @@ public class CommentController {
     }
 
     @GetMapping(value = "/deleteComment/{commentId}")
+    @PreAuthorize("isAuthenticated()")
     public String loadDeleteCommentPage(@PathVariable(name = "commentId") String commentId, Model model) {
         CommentDto commentDto = this.commentService.getByIdForRemovePage(Integer.parseInt(commentId));
+        String currentLoggedUsername = SecurityContextHolder.getContext().getAuthentication().getName();
+        boolean isNotAdmin = SecurityContextHolder.getContext()
+                .getAuthentication()
+                .getAuthorities()
+                .stream()
+                .noneMatch(ga -> ga.getAuthority().equals("ROLE_ADMIN"));
+
+        if (!currentLoggedUsername.equals(commentDto.getUsername()) && isNotAdmin) {
+            return "main/notAllowed/forbidden";
+        }
+
         model.addAttribute("comment", commentDto);
 
         return "main/news/deleteComment";
     }
 
     @PostMapping(value = "/deleteComment/{commentId}/{articleId}/{username}")
+    @PreAuthorize("isAuthenticated()")
     public String deleteComment(@PathVariable(name = "commentId") String commentId,
                                 @PathVariable(name = "articleId") String articleId,
                                 @PathVariable(name = "username") String username) {
@@ -65,14 +79,26 @@ public class CommentController {
     }
 
     @GetMapping(value = "/editComment/{commentId}")
+    @PreAuthorize("isAuthenticated()")
     public String loadEditCommentPage(@PathVariable(name = "commentId") String commentId, Model model) {
         CommentDto commentDto = this.commentService.getByIdForRemovePage(Integer.parseInt(commentId));
+        String currentLoggedUsername = SecurityContextHolder.getContext().getAuthentication().getName();
+        boolean isNotAdmin = SecurityContextHolder.getContext()
+                .getAuthentication()
+                .getAuthorities()
+                .stream()
+                .noneMatch(ga -> ga.getAuthority().equals("ROLE_ADMIN"));
+        if (!currentLoggedUsername.equals(commentDto.getUsername()) && isNotAdmin) {
+            return "main/notAllowed/forbidden";
+        }
+
         model.addAttribute("comment", commentDto);
 
         return "main/news/editComment";
     }
 
     @PostMapping(value = "/editComment/{commentId}/{articleId}")
+    @PreAuthorize("isAuthenticated()")
     public String editComment(@PathVariable(name = "commentId") String commentId,
                               @PathVariable(name = "articleId") String articleId,
                               CommentDto commentDto) {

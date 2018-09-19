@@ -57,7 +57,7 @@ public class ArticlesController {
     }
 
     @GetMapping(value = "/editArticle/{articleId}")
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String loadEditArticlePage(@PathVariable String articleId, Model model) {
         ArticleDto articleDto = this.articleService.getDtoById(Integer.parseInt(articleId));
         model.addAttribute("article", articleDto);
@@ -66,7 +66,7 @@ public class ArticlesController {
     }
 
     @PostMapping(value = "/editArticle/{articleId}")
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String editArticle(@PathVariable String articleId, RegisterArticleDto editedArticleInfo) {
         this.articleService.editArticle(Integer.parseInt(articleId), editedArticleInfo);
 
@@ -74,7 +74,7 @@ public class ArticlesController {
     }
 
     @GetMapping(value = "/deleteArticle/{articleId}")
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String loadDeleteArticlePage(@PathVariable String articleId, Model model) {
         ArticleDto articleDto = this.articleService.getDtoById(Integer.parseInt(articleId));
         model.addAttribute("article", articleDto);
@@ -83,7 +83,7 @@ public class ArticlesController {
     }
 
     @PostMapping(value = "/deleteArticle/{articleId}")
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String deleteArticle(@PathVariable String articleId, RegisterArticleDto editedArticleInfo) {
         this.articleService.deleteArticle(Integer.parseInt(articleId));
 

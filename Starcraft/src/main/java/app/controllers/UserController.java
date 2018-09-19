@@ -60,6 +60,11 @@ public class UserController {
     @GetMapping(value = "/editProfile/{username}")
     @PreAuthorize("isAuthenticated()")
     public String loadEditProfilePage(@PathVariable("username") String username, Model model) {
+        String currentLoggedUsername = SecurityContextHolder.getContext().getAuthentication().getName();
+        if (!currentLoggedUsername.equals(username)) {
+            return "main/notAllowed/forbidden";
+        }
+
         UserProfileDto userProfileDto = this.userService.getUserProfileDto(username);
         model.addAttribute("user", userProfileDto);
 
@@ -77,6 +82,17 @@ public class UserController {
     @GetMapping(value = "/deleteProfile/{username}")
     @PreAuthorize("isAuthenticated()")
     public String loadDeleteProfilePage(@PathVariable("username") String username, Model model) {
+        String currentLoggedUsername = SecurityContextHolder.getContext().getAuthentication().getName();
+        boolean isNotAdmin = SecurityContextHolder.getContext()
+                .getAuthentication()
+                .getAuthorities()
+                .stream()
+                .noneMatch(ga -> ga.getAuthority().equals("ROLE_ADMIN"));
+
+        if (!currentLoggedUsername.equals(username) && isNotAdmin) {
+            return "main/notAllowed/forbidden";
+        }
+
         UserProfileDto userProfileDto = this.userService.getUserProfileDto(username);
         model.addAttribute("user", userProfileDto);
 
