@@ -1,5 +1,6 @@
 package app.controllers;
 
+import app.pages.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -13,6 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import app.dtos.article_dtos.ArticleDto;
 import app.dtos.article_dtos.RegisterArticleDto;
 import app.services.api.ArticleService;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class ArticlesController {
@@ -88,4 +93,13 @@ public class ArticlesController {
         return "redirect:/";
     }
 
+    @GetMapping(value = "/search")
+    public String loadSearchPageAndResults(@RequestParam("articleName") String articleName, Model model) {
+        List<ArticleDto> news = this.articleService.getAll().stream()
+                .filter(a -> a.getName().toLowerCase().contains(articleName.toLowerCase()))
+                .collect(Collectors.toList());
+        model.addAttribute("news", news);
+
+        return "/main/news/search";
+    }
 }

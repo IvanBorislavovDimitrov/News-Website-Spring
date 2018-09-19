@@ -71,39 +71,21 @@ public class HomeController {
 
     @GetMapping(value = "/")
     public String home(@RequestParam(name = "page", defaultValue = "1") String page, @RequestParam(name = "articleName", required = false) String articleName, Model model) {
-        List<ArticleDto> news = null;
+
+        List<ArticleDto> news = this.articleService.getAll();
+        news.sort((n1, n2) -> n2.getDate().compareTo(n1.getDate()));
+
+        int size = news.size();
+        int pagesCount = (int) Math.ceil(size / 2D);
+        Page[] pages = new Page[pagesCount];
+        int count = 0;
+        this.addArticlesToPages(news, pages, count);
+
         int requiredPage = Integer.parseInt(page) - 1;
-        if (articleName == null) {
-            news = this.articleService.getAll();
-            int size = news.size();
-            int pagesCount = (int) Math.ceil(size / 2D);
-            Page[] pages = new Page[pagesCount];
-            int count = 0;
-            this.addArticlesToPages(news, pages, count);
 
-            model.addAttribute("pages", pages);
-            model.addAttribute("page", pages[requiredPage]);
-            model.addAttribute("pageNumber", requiredPage + 1);
-        } else {
-
-            news = this.articleService.getAll().stream()
-                    .filter(a -> a.getName().toLowerCase().contains(articleName.toLowerCase()))
-                    .collect(Collectors.toList());
-            int size = news.size();
-            int pagesCount = (int) Math.ceil(size / 2D);
-            Page[] pages = new Page[pagesCount];
-            int count = 0;
-            this.addArticlesToPages(news, pages, count);
-            if (pages.length == 0) {
-                model.addAttribute("pages", pages);
-                model.addAttribute("page", pages[requiredPage]);
-                model.addAttribute("pageNumber", requiredPage + 1);
-            } else {
-                model.addAttribute("pages", pages);
-                model.addAttribute("page", pages[requiredPage]);
-                model.addAttribute("pageNumber", requiredPage + 1);
-            }
-        }
+        model.addAttribute("pages", pages);
+        model.addAttribute("page", pages[requiredPage]);
+        model.addAttribute("pageNumber", requiredPage + 1);
 
         return "main/news";
     }
