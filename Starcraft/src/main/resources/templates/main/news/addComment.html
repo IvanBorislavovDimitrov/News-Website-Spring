@@ -16,7 +16,6 @@
 <div class="jumbotron container">
     <div class="container body-content span=8 offset=2">
         <h1>Add comment</h1>
-        <legend>Legend</legend>
         <form method="post" th:action="@{/addComment} + '/' + ${article.id} + '/' + ${user}">
 
             <div class="form-group">
