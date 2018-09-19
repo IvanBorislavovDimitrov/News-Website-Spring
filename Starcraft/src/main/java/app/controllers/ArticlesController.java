@@ -108,10 +108,19 @@ public class ArticlesController {
 
         int requiredPage = Integer.parseInt(page) - 1;
 
+        if (pagesCount == 0 || news.size() == 0) {
+            model.addAttribute("areThereNews", false);
+
+            return "/main/news/search";
+        }
+
+        model.addAttribute("areThereNews", true);
         model.addAttribute("news", pages[requiredPage].getArticles());
         model.addAttribute("pages", pages);
         model.addAttribute("pageNumber", requiredPage + 1);
         model.addAttribute("articleName", articleName);
+        model.addAttribute("maxPages", pagesCount + 1);
+        model.addAttribute("minPages", 0);
 
         return "/main/news/search";
     }

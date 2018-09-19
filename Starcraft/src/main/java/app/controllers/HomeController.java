@@ -86,6 +86,8 @@ public class HomeController {
         model.addAttribute("pages", pages);
         model.addAttribute("page", pages[requiredPage]);
         model.addAttribute("pageNumber", requiredPage + 1);
+        model.addAttribute("maxPages", pagesCount + 1);
+        model.addAttribute("minPages", 0);
 
         return "main/news";
     }
