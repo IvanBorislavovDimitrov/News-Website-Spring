@@ -10,18 +10,56 @@
 <body>
 <div th:include="fragments/navbar"></div>
 <br>
-<div th:each="n : ${news}">
+<div th:each="n : ${page.articles}">
     <div class="jumbotron-fluid container">
         <h3 class="display-3" th:text="${n.getName()}"></h3>
         <h4 class="lead" th:text="${n.getDescription()}"></h4>
         <hr class="my-4">
         <h6 class="text-success" th:text="'Comments: ' + ${n.getComments().size()}"></h6>
         <h6 th:text="${n.getDate()}"></h6><br>
-        <p><a class="btn btn-primary btn-lg" th:href="@{/article/} + ${n.getId()}" role="button">Learn more</a></p><br>
+        <p><a class="btn btn-primary btn-lg" th:href="@{/article/} + ${n.getId()}" role="button">Learn more</a></p>
+        <br>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3 py-5 d-flex">
+            <ul class="pagination mx-auto">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">«</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+                <div th:each="page : ${pages}">
+                    <li class="page-item">
+                        <form method="get" th:href="@{/articleName=}">
+                            <div th:if="${page.number} == ${pageNumber}">
+                                <div class="page-item active">
+                                    <input class="page-link" type="submit" name="page"
+                                           th:value="${page.number}"/>
+                                </div>
+                            </div>
+                            <div th:unless="${page.number} == ${pageNumber}">
+                                <input class="page-link" type="submit" name="page"
+                                       th:value="${page.number}"/>
+                            </div>
+                        </form>
+                    </li>
+                </div>
 
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">»</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
 <br>
 <footer th:include="fragments/footer"></footer>
 </body>
 </html>
+

@@ -3,9 +3,11 @@ package app.controllers;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import app.pages.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -22,20 +24,98 @@ public class HomeController {
         this.articleService = articleService;
     }
 
-    @RequestMapping(value = "/")
-    public String home(@RequestParam(name = "articleName", required = false) String articleName, Model model) {
+//    @RequestMapping(value = "/")
+//    public String home(@RequestParam(name = "articleName", required = false) String articleName, Model model) {
+//        List<ArticleDto> news = null;
+//        if (articleName == null) {
+//            news = this.articleService.getAll();
+//        } else {
+//            news = this.articleService.getAll().stream()
+//                    .filter(a -> a.getName().toLowerCase().contains(articleName.toLowerCase()))
+//                    .collect(Collectors.toList());
+//        }
+//        news.sort((d1, d2) -> d2.getDate().compareTo(d1.getDate()));
+//        model.addAttribute("news", news);
+//
+//        return "main/news";
+//    }
+
+//    @RequestMapping(value = "/")
+//    public String home(@RequestParam(name = "articleName", required = false) String articleName, Model model) {
+//        List<ArticleDto> news = null;
+//        if (articleName == null) {
+//            news = this.articleService.getAll();
+//            int size = news.size();
+//            int pagesCount = (int) Math.ceil(size / 2D);
+//            Page[] pages = new Page[pagesCount];
+//            int count = 0;
+//            for (int i = 0; count < news.size(); i++) {
+//                pages[i] = new Page();
+//                pages[i].setNumber(i + 1);
+//                pages[i].getArticles().add(news.get(count++));
+//                if (count == news.size())
+//                    break;
+//                pages[i].getArticles().add(news.get(count++));
+//            }
+//            model.addAttribute("pages", pages);
+//        } else {
+//            news = this.articleService.getAll().stream()
+//                    .filter(a -> a.getName().toLowerCase().contains(articleName.toLowerCase()))
+//                    .collect(Collectors.toList());
+//        }
+//        news.sort((d1, d2) -> d2.getDate().compareTo(d1.getDate()));
+//        model.addAttribute("news", news);
+//
+//        return "main/news";
+//    }
+
+    @GetMapping(value = "/")
+    public String home(@RequestParam(name = "page", defaultValue = "1") String page, @RequestParam(name = "articleName", required = false) String articleName, Model model) {
         List<ArticleDto> news = null;
+        int requiredPage = Integer.parseInt(page) - 1;
         if (articleName == null) {
             news = this.articleService.getAll();
+            int size = news.size();
+            int pagesCount = (int) Math.ceil(size / 2D);
+            Page[] pages = new Page[pagesCount];
+            int count = 0;
+            this.addArticlesToPages(news, pages, count);
+
+            model.addAttribute("pages", pages);
+            model.addAttribute("page", pages[requiredPage]);
+            model.addAttribute("pageNumber", requiredPage + 1);
         } else {
+
             news = this.articleService.getAll().stream()
                     .filter(a -> a.getName().toLowerCase().contains(articleName.toLowerCase()))
                     .collect(Collectors.toList());
+            int size = news.size();
+            int pagesCount = (int) Math.ceil(size / 2D);
+            Page[] pages = new Page[pagesCount];
+            int count = 0;
+            this.addArticlesToPages(news, pages, count);
+            if (pages.length == 0) {
+                model.addAttribute("pages", pages);
+                model.addAttribute("page", pages[requiredPage]);
+                model.addAttribute("pageNumber", requiredPage + 1);
+            } else {
+                model.addAttribute("pages", pages);
+                model.addAttribute("page", pages[requiredPage]);
+                model.addAttribute("pageNumber", requiredPage + 1);
+            }
         }
-        news.sort((d1, d2) -> d2.getDate().compareTo(d1.getDate()));
-        model.addAttribute("news", news);
 
         return "main/news";
     }
 
+    private void addArticlesToPages(List<ArticleDto> news, Page[] pages, int count) {
+        for (int i = 0; count < news.size(); i++) {
+            pages[i] = new Page();
+            pages[i].setNumber(i + 1);
+            pages[i].getArticles().add(news.get(count++));
+            if (count == news.size())
+                break;
+            pages[i].getArticles().add(news.get(count++));
+        }
+    }
 }
