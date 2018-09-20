@@ -1,5 +1,6 @@
 package app.controllers;
 
+import app.services.api.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -17,18 +18,23 @@ import app.services.api.UserService;
 @Controller
 public class UserController {
 
-    public UserService userService;
+    private final UserService userService;
+    private final NotificationService notificationService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, NotificationService notificationService) {
         this.userService = userService;
+        this.notificationService = notificationService;
     }
 
     @PostMapping(value = "/register")
     @PreAuthorize("isAnonymous()")
     public String registerUser(RegisterUserDto registerUserDto) {
         try {
+            // register user
             this.userService.register(registerUserDto);
+            // send a notification
+            this.notificationService.sendNotification(registerUserDto);
         } catch (IllegalArgumentException e) {
 
             return "redirect:/registerError";
