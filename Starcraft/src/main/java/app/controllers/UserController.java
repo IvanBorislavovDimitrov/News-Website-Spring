@@ -1,5 +1,6 @@
 package app.controllers;
 
+import app.exceptions.user.*;
 import app.services.api.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -29,15 +30,52 @@ public class UserController {
 
     @PostMapping(value = "/register")
     @PreAuthorize("isAnonymous()")
-    public String registerUser(RegisterUserDto registerUserDto) {
+    public String registerUser(RegisterUserDto registerUserDto, Model model) {
         try {
             // register user
             this.userService.register(registerUserDto);
             // send a notification
             this.notificationService.sendNotification(registerUserDto);
-        } catch (IllegalArgumentException e) {
+        } catch (InvalidAgeException e) {
+            model.addAttribute("invalidAgeException", true);
 
-            return "redirect:/registerError";
+            return "main/user/register";
+        } catch (PasswordsDoNotMatchException e) {
+            model.addAttribute("passwordsDoNotMatch", true);
+
+            return "main/user/register";
+        } catch (InvalidCityException e) {
+            model.addAttribute("invalidCityException", true);
+
+            return "main/user/register";
+        } catch (InvalidEmailException e) {
+            model.addAttribute("invalidEmailException", true);
+
+            return "main/user/register";
+        } catch (InvalidFirstNameException e) {
+            model.addAttribute("invalidFirstNameException", true);
+
+            return "main/user/register";
+        } catch (InvalidLastNameException e) {
+            model.addAttribute("invalidLastNameException", true);
+
+            return "main/user/register";
+        } catch (InvalidUsernameException e) {
+            model.addAttribute("invalidUsernameException", true);
+
+            return "main/user/register";
+        } catch (InvalidPasswordException e) {
+            model.addAttribute("invalidPasswordException", true);
+
+            return "main/user/register";
+        } catch (EmailTakenException e) {
+            model.addAttribute("emailTakenException", true);
+
+            return "main/user/register";
+        }catch (UsernameTakenException e) {
+            model.addAttribute("usernameTakenException", true);
+
+            return "main/user/register";
         }
 
         return "redirect:/login";
@@ -114,12 +152,5 @@ public class UserController {
         }
 
         return "redirect:/";
-    }
-
-    @GetMapping(value = "/registerError")
-    public String loadRegisterErrorPage(Model model) {
-        model.addAttribute("registerError", true);
-
-        return "main/user/register";
     }
 }

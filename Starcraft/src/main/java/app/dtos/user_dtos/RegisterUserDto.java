@@ -17,6 +17,9 @@ public class RegisterUserDto {
     private String password;
 
     @Size(min = 2, max = 50)
+    private String confirmPassword;
+
+    @Size(min = 2, max = 50)
     private String firstName;
 
     @Size(min = 2, max = 50)
@@ -89,5 +92,11 @@ public class RegisterUserDto {
         this.city = city;
     }
 
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
 
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
 }
