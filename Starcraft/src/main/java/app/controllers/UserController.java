@@ -36,44 +36,10 @@ public class UserController {
             this.userService.register(registerUserDto);
             // send a notification
             this.notificationService.sendNotification(registerUserDto);
-        } catch (InvalidAgeException e) {
-            model.addAttribute("invalidAgeException", true);
-
-            return "main/user/register";
-        } catch (PasswordsDoNotMatchException e) {
-            model.addAttribute("passwordsDoNotMatch", true);
-
-            return "main/user/register";
-        } catch (InvalidCityException e) {
-            model.addAttribute("invalidCityException", true);
-
-            return "main/user/register";
-        } catch (InvalidEmailException e) {
-            model.addAttribute("invalidEmailException", true);
-
-            return "main/user/register";
-        } catch (InvalidFirstNameException e) {
-            model.addAttribute("invalidFirstNameException", true);
-
-            return "main/user/register";
-        } catch (InvalidLastNameException e) {
-            model.addAttribute("invalidLastNameException", true);
-
-            return "main/user/register";
-        } catch (InvalidUsernameException e) {
-            model.addAttribute("invalidUsernameException", true);
-
-            return "main/user/register";
-        } catch (InvalidPasswordException e) {
-            model.addAttribute("invalidPasswordException", true);
-
-            return "main/user/register";
-        } catch (EmailTakenException e) {
-            model.addAttribute("emailTakenException", true);
-
-            return "main/user/register";
-        }catch (UsernameTakenException e) {
-            model.addAttribute("usernameTakenException", true);
+        } catch (UserRegisterException e) {
+            String exceptionName = e.getClass().getSimpleName();
+            exceptionName = Character.toLowerCase(exceptionName.charAt(0)) + exceptionName.substring(1);
+            model.addAttribute(exceptionName, true);
 
             return "main/user/register";
         }

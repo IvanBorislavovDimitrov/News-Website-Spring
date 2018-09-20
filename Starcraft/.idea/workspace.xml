@@ -2,25 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="529d0096-1d97-4a65-aeb6-fb96a93ea7c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/exceptions/user/EmailTakenException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/exceptions/user/InvalidAgeException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/exceptions/user/InvalidCityException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/exceptions/user/InvalidEmailException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/exceptions/user/InvalidFirstNameException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/exceptions/user/InvalidLastNameException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/exceptions/user/InvalidPasswordException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/exceptions/user/InvalidUsernameException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/exceptions/user/PasswordsDoNotMatchException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/exceptions/user/UserRegisterException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/exceptions/user/UsernameTakenException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/dtos/user_dtos/RegisterUserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/dtos/user_dtos/RegisterUserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/services/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/user/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/user/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/controllers/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/services/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/services/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/user/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/user/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/exceptions/user/UserRegisterException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/exceptions/user/UserRegisterException.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,7 +38,7 @@
           <entry key="class" value="3" />
           <entry key="css" value="5" />
           <entry key="html" value="109" />
-          <entry key="java" value="164" />
+          <entry key="java" value="166" />
           <entry key="properties" value="6" />
           <entry key="xml" value="1" />
         </counts>
@@ -64,7 +48,7 @@
           <entry key="CLASS" value="3" />
           <entry key="CSS" value="5" />
           <entry key="HTML" value="109" />
-          <entry key="JAVA" value="164" />
+          <entry key="JAVA" value="166" />
           <entry key="Properties" value="6" />
           <entry key="XML" value="1" />
         </counts>
@@ -74,9 +58,9 @@
           <entry key="css" value="10" />
           <entry key="dummy" value="10" />
           <entry key="html" value="5450" />
-          <entry key="java" value="10421" />
+          <entry key="java" value="10545" />
           <entry key="properties" value="226" />
-          <entry key="txt" value="337" />
+          <entry key="txt" value="409" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
@@ -84,8 +68,8 @@
         <counts>
           <entry key="CSS" value="10" />
           <entry key="HTML" value="5450" />
-          <entry key="JAVA" value="10421" />
-          <entry key="PLAIN_TEXT" value="347" />
+          <entry key="JAVA" value="10545" />
+          <entry key="PLAIN_TEXT" value="419" />
           <entry key="Properties" value="226" />
           <entry key="XML" value="1" />
         </counts>
@@ -121,14 +105,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/app/controllers/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="41" column="40" lean-forward="true" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
+            <state relative-caret-position="432">
+              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/exceptions/user/UserRegisterException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -156,26 +149,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/exceptions/user/EmailTakenException.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/services/impl/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
-              <folding>
-                <element signature="e#184#185#0" expanded="true" />
-                <element signature="e#214#215#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="270">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/services/impl/UserServiceImpl.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/controllers/SecurityController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-335">
-              <caret line="223" column="52" lean-forward="true" selection-start-line="223" selection-start-column="52" selection-end-line="223" selection-end-column="52" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="90">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -194,19 +180,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="331">
               <caret line="73" column="59" selection-start-line="73" selection-start-column="59" selection-end-line="73" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/exceptions/user/InvalidPasswordException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-              <folding>
-                <element signature="e#200#201#0" expanded="true" />
-                <element signature="e#230#231#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -246,7 +219,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/templates/main/news/addComment.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/main/news/deleteArticle.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/main/news/deleteComment.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/main/news/editArticle.html" />
@@ -294,9 +266,10 @@
         <option value="$PROJECT_DIR$/src/main/java/app/exceptions/user/InvalidPasswordException.java" />
         <option value="$PROJECT_DIR$/src/main/java/app/exceptions/user/EmailTakenException.java" />
         <option value="$PROJECT_DIR$/src/main/java/app/exceptions/user/UsernameTakenException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/main/user/register.html" />
         <option value="$PROJECT_DIR$/src/main/java/app/services/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/exceptions/user/UserRegisterException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" />
       </list>
     </option>
   </component>
@@ -314,9 +287,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="950" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1940" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -502,7 +476,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537469771452" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537470173216" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -554,7 +528,7 @@
       <workItem from="1537297761742" duration="12819000" />
       <workItem from="1537337846119" duration="43163000" />
       <workItem from="1537449554676" duration="84000" />
-      <workItem from="1537450686751" duration="8919000" />
+      <workItem from="1537450686751" duration="9405000" />
     </task>
     <task id="LOCAL-00001" summary="layout changed">
       <created>1537298164592</created>
@@ -647,11 +621,18 @@
       <option name="project" value="LOCAL" />
       <updated>1537454310364</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="More responsive exception when registering">
+      <created>1537469892042</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1537469892042</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64985000" />
+    <option name="totallyTimeSpent" value="65471000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -738,7 +719,8 @@
     <MESSAGE value="Pages work excellent" />
     <MESSAGE value="Little bug fixed, pages still work perfect" />
     <MESSAGE value="App sends message upon registration" />
-    <option name="LAST_COMMIT_MESSAGE" value="App sends message upon registration" />
+    <MESSAGE value="More responsive exception when registering" />
+    <option name="LAST_COMMIT_MESSAGE" value="More responsive exception when registering" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -781,13 +763,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/models/Privilege.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/app/models/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -1096,17 +1071,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/exceptions/user/UserRegisterException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding>
-            <element signature="e#136#137#0" expanded="true" />
-            <element signature="e#166#167#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/app/exceptions/user/InvalidPasswordException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -1177,16 +1141,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/controllers/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="41" column="40" lean-forward="true" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/user/register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
@@ -1196,8 +1150,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/app/services/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-335">
-          <caret line="223" column="52" lean-forward="true" selection-start-line="223" selection-start-column="52" selection-end-line="223" selection-end-column="52" />
+        <state relative-caret-position="270">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/controllers/SecurityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/exceptions/user/UserRegisterException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/controllers/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

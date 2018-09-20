@@ -1,6 +1,6 @@
 package app.exceptions.user;
 
-public class UserRegisterException extends RuntimeException {
+public abstract class UserRegisterException extends RuntimeException {
 
     public UserRegisterException() {
     }
