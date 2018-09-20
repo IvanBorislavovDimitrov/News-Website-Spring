@@ -29,8 +29,12 @@
         <a class="btn btn-danger btn-md" href="/">Cancel</a>
         <input class="btn btn-primary" type="submit" name="value" value="Login"/>
     </form>
-    <h3 th:if="${loginError}">Invalid username or pasword!</h3>
-</div>
+    <div th:if="${loginError}">
+        <div class="alert alert-dismissible alert-warning">
+            <h4 class="alert-heading">Warning!</h4>
+            <p class="mb-0">Invalid username or password!</p>
+        </div>
+    </div></div>
 
 <br>
 <footer th:include="fragments/footer"></footer>

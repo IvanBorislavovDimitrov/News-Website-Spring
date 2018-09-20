@@ -156,6 +156,13 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         this.privilegeService.update(privilegeUser);
     }
 
+    @Override
+    public List<String> getAllUserEmailsWithNames() {
+        List<String> allEmailsWithUsersnames = this.userRepository.getAll().stream().map(u -> u.getEmail() + "&" + u.getUsername()).collect(Collectors.toList());
+
+        return allEmailsWithUsersnames;
+    }
+
     private void checkIfUsernameIsTaken(String username) {
         if (this.userRepository.getAll().stream().anyMatch(u -> u.getUsername().equals(username))) {
             throw new UsernameTakenException("This username is already taken!");

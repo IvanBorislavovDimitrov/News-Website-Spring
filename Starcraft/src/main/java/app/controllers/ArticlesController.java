@@ -1,6 +1,8 @@
 package app.controllers;
 
 import app.pages.Page;
+import app.services.api.NotificationService;
+import app.services.api.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -22,11 +24,15 @@ import java.util.stream.Collectors;
 @Controller
 public class ArticlesController {
 
+    private final NotificationService notificationService;
     private final ArticleService articleService;
+    private final UserService userService;
 
     @Autowired
-    public ArticlesController(ArticleService articleService) {
+    public ArticlesController(NotificationService notificationService, ArticleService articleService, UserService userService) {
+        this.notificationService = notificationService;
         this.articleService = articleService;
+        this.userService = userService;
     }
 
     @GetMapping(value = "/addArticle")
@@ -40,7 +46,7 @@ public class ArticlesController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String addArticle(RegisterArticleDto article) {
         this.articleService.save(article);
-
+        this.notificationService.sendNotificationForNewArticle(article);
         return "redirect:/";
     }
 

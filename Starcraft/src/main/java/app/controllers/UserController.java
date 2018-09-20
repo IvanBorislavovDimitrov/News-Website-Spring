@@ -35,7 +35,7 @@ public class UserController {
             // register user
             this.userService.register(registerUserDto);
             // send a notification
-            this.notificationService.sendNotification(registerUserDto);
+            this.notificationService.sendNotificationForRegistering(registerUserDto);
         } catch (UserRegisterException e) {
             String exceptionName = e.getClass().getSimpleName();
             exceptionName = Character.toLowerCase(exceptionName.charAt(0)) + exceptionName.substring(1);

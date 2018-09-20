@@ -5,6 +5,8 @@ import app.dtos.user_dtos.RegisterUserDto;
 import app.dtos.user_dtos.UserProfileDto;
 import app.models.User;
 
+import java.util.List;
+
 public interface UserService {
 	
 	void register(RegisterUserDto registerUserDto);
@@ -18,4 +20,6 @@ public interface UserService {
 	void delete(String username);
 
     void changePrivileges(String username, ChangePrivilegesDto privilegesDto);
+
+	List<String> getAllUserEmailsWithNames();
 }

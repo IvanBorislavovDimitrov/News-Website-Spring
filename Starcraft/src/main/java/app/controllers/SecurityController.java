@@ -42,7 +42,6 @@ public class SecurityController {
     }
 
     @GetMapping(value = "/login-error")
-    @PreAuthorize("isAuthenticated()")
     public String loadLoginErrorPage(Model model) {
         model.addAttribute("loginError", true);
 
