@@ -31,29 +31,38 @@
     <br>
     <h2>Comments:</h2>
     <br>
-    <div th:each="c : ${comments}">
-        <div class="card border-primary mb-3" style="max-width: 20rem;">
-            <div class="card-header" th:text="${c.getUsername()}"></div>
-            <div class="card-body">
-                <h5 class="card-title" th:text="${c.getValue()}"></h5>
-                <p class="card-text" th:text="${c.getDate()}"></p>
-                <div th:if="${c.getUsername()} == ${#authentication.getPrincipal().getUsername()}">
-                    <a class="btn btn-primary btn-md" th:href="@{/editComment/} + ${c.getId()}">Edit</a>
-                </div>
-                <br>
-                <div sec:authorize="hasRole('ROLE_USER')">
-                    <div th:if="${c.getUsername()} == ${#authentication.getPrincipal().getUsername()}">
-                        <a class="btn btn-danger btn-md" th:href="@{/deleteComment/} + ${c.getId()}">Delete</a>
+    <div class="row">
+
+        <div th:each="c : ${comments}">
+            <div class="card border-primary mb-3" style="width: 23rem; height: 17rem">
+                <div class="card-header">
+                    <div class="row">
+                    <div class="btn btn-group-justified btn-md" th:text="${c.getUsername()}"></div>
+                        <div th:if="${c.getUsername()} == ${#authentication.getPrincipal().getUsername()}">
+                            <a class="btn btn-primary btn-md" th:href="@{/editComment/} + ${c.getId()}">Edit</a>
+                        </div>
+                        <br>
+                        <div sec:authorize="hasRole('ROLE_USER')">
+                            <div th:if="${c.getUsername()} == ${#authentication.getPrincipal().getUsername()}">
+                                <a class="btn btn-danger btn-md"
+                                   th:href="@{/deleteComment/} + ${c.getId()}">Delete</a>
+                            </div>
+                        </div>
+
+                        <div sec:authorize="hasRole('ROLE_ADMIN')">
+                            <a class="btn btn-danger btn-md" th:href="@{/deleteComment/} + ${c.getId()}">Delete</a>
+                        </div>
                     </div>
                 </div>
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${c.getValue()}"></h5>
+                    <p class="card-text" th:text="${c.getDate()}"></p>
 
-                <div sec:authorize="hasRole('ROLE_ADMIN')">
-                    <a class="btn btn-danger btn-md" th:href="@{/deleteComment/} + ${c.getId()}">Delete</a>
                 </div>
             </div>
         </div>
+        <br>
     </div>
-    <br>
 </div>
 
 <footer th:include="fragments/footer"></footer>
