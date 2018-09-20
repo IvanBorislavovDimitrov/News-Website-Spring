@@ -66,7 +66,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         this.makeValidationsForUser(registerUserDto);
 
         User user = new User();
-        createUser(registerUserDto, user);
+        setUserDetails(registerUserDto, user);
 
         this.privilegeService.createDefaultPrivilegesIfNeeded();
         this.setRoleToUser(user);
@@ -102,9 +102,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public void updateProfile(String username, RegisterUserDto registerUserDto) {
+    public void updateProfile(String username, RegisterUserDto editedDto) throws UserRegisterException {
         User user = this.getByUsername(username);
-        this.createUser(registerUserDto, user);
+        this.makeValidationsForExistingUser(editedDto);
+        this.setUserDetails(editedDto, user);
 
         this.userRepository.update(user);
     }
@@ -236,18 +237,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         this.checkIfEmailIsTaken(registerUserDto.getEmail());
         this.checkIfUsernameIsTaken(registerUserDto.getUsername());
         this.checkIfPasswordsMatch(registerUserDto.getPassword(), registerUserDto.getConfirmPassword());
-        if (!ValidationUtil.isValid(registerUserDto)) {
-            this.checkUsername(registerUserDto.getUsername());
-            this.checkEmail(registerUserDto.getEmail());
-            this.checkPassword(registerUserDto.getPassword());
-            this.checkFirstName(registerUserDto.getFirstName());
-            this.checkLastName(registerUserDto.getLastName());
-            this.checkAge(registerUserDto.getAge());
-            this.checkCity(registerUserDto.getCity());
-        }
+        this.makeAdditionalCheck(registerUserDto);
     }
 
-    private void createUser(RegisterUserDto registerUserDto, User user) {
+    private void setUserDetails(RegisterUserDto registerUserDto, User user) {
         user.setUsername(registerUserDto.getUsername());
         user.setEmail(registerUserDto.getEmail());
         String hashedPassword = this.passwordEncoder.encode(registerUserDto.getPassword());
@@ -272,6 +265,23 @@ public class UserServiceImpl implements UserService, UserDetailsService {
             this.updatePrivilege(user, ROLE_ADMIN);
         } else {
             this.updatePrivilege(user, ROLE_USER);
+        }
+    }
+
+    private void makeValidationsForExistingUser(RegisterUserDto editedDto) {
+        this.checkIfPasswordsMatch(editedDto.getPassword(), editedDto.getConfirmPassword());
+        this.makeAdditionalCheck(editedDto);
+    }
+
+    private void makeAdditionalCheck(RegisterUserDto editedDto) {
+        if (!ValidationUtil.isValid(editedDto)) {
+            this.checkUsername(editedDto.getUsername());
+            this.checkEmail(editedDto.getEmail());
+            this.checkPassword(editedDto.getPassword());
+            this.checkFirstName(editedDto.getFirstName());
+            this.checkLastName(editedDto.getLastName());
+            this.checkAge(editedDto.getAge());
+            this.checkCity(editedDto.getCity());
         }
     }
 }

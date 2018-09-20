@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <meta charset="UTF-8">
+    <title>Owner info</title>
+
+    <link rel="stylesheet" href="/styles/bootstrap.css">
+</head>
+<body>
+<div th:include="fragments/navbar"></div>
+<br>
+<div class="jumbotron container">
+    <div class="row">
+        <div>
+            <img width="200" href="200" th:src="@{/images/ownerLogo.png}" class="img-rounded" alt="spring logo"/>
+        </div>
+        <div>
+            <h3>This is just a website made for educational purpose</h3>
+            <h3>Made by Ivan Dimitrov</h3>
+            <h3>For any question - starstrucks1997@gmail.com</h3>
+            <h3>If somebody enters here, by nice and give it a star</h3>
+        </div>
+    </div>
+</div>
+<br>
+<footer th:include="fragments/footer"></footer>
+</body>
+</html>

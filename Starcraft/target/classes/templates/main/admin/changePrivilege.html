@@ -1,0 +1,62 @@
+<html>
+<title>Admin panel</title>
+<head xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="/styles/bootstrap.css">
+
+</head>
+<body>
+<div th:include="fragments/navbar"></div>
+<br>
+
+<div class="jumbotron-fluid container">
+    <form method="get" th:action="@{/changePrivilege}">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Username: </label>
+            <div class="col-sm-3">
+                <input class="form-control" type="text" name="username"/>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+</div>
+<div th:if="${user != null}">
+    <div class="jumbotron container">
+        <h2 th:text="${user.getUsername()} + '\'s profle (' + ${user.getFirstName()} + ' ' + ${user.getLastName()} + ')'"></h2>
+        <div class="col-md-12">
+            <div class="text-black">
+                <span>E-mail: </span> <span th:text="${user.getEmail()}"></span>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="text-black">
+                <span>Age: </span> <span th:text="${user.getAge()}"></span>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="text-black">
+                <span>City: </span> <span th:text="${user.getCity()}"></span>
+            </div>
+        </div>
+        <br>
+        <a class="btn btn-danger btn-md"
+           th:href="@{deleteProfile} + '/' + ${user.getUsername()}" role="button">Delete</a>
+        <a class="btn btn-primary btn-md"
+           th:href="@{editProfilePage} + '/' + ${user.getUsername()}">Edit privileges</a>
+        <br>
+    </div>
+</div>
+<div class="container">
+    <div th:if="${userNotFound}">
+        <h3 th:text="${notFoundMessage}"></h3>
+    </div>
+</div>
+
+<br>
+<footer th:include="fragments/footer"></footer>
+</body>
+</html>

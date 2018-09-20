@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Small Business - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/styles/bootstrap.css">
+
+</head>
+
+<body>
+<div th:include="fragments/navbar"></div>
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Heading Row -->
+    <div class="row my-4">
+        <div class="col-lg-8">
+            <img class="img-fluid rounded" th:src="@{/images/indexWallpaper.jpg}" alt="newspaper">
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-4">
+            <h1>Welcome to our community</h1>
+            <p>This is a website for news. We usually publish news about everything, but our main theme
+                is Starcraft. This is one very interesting game about battles and strategies. We hope
+                that you will enjoy our website.</p>
+            <a class="btn btn-primary btn-lg" href="/news">Read more!</a>
+        </div>
+        <!-- /.col-md-4 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title" th:text="${article1.name}"></h2>
+                    <p class="card-text" th:text="${article1.description}">
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <a th:href="@{/article} + '/' + ${article1.id}" class="btn btn-primary">Learn more</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title" th:text="${article2.name}"></h2>
+                    <p class="card-text" th:text="${article2.description}">
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <a th:href="@{/article} + '/' + ${article2.id}" class="btn btn-primary">Learn more</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title" th:text="${article3.name}"></h2>
+                    <p class="card-text" th:text="${article3.description}">
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <a th:href="@{/article} + '/' + ${article3.id}" class="btn btn-primary">Learn more</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+<!-- /.container -->
+
+<footer th:include="fragments/footer"></footer>
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="homePageResources/vendor/jquery/jquery.min.js"></script>
+<script src="homePageResources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -82,8 +82,18 @@ public class UserController {
 
     @PostMapping(value = "/editProfile/{username}")
     @PreAuthorize("isAuthenticated()")
-    public String editProfile(@PathVariable("username") String username, RegisterUserDto registerUserDto) {
-        this.userService.updateProfile(username, registerUserDto);
+    public String editProfile(@PathVariable("username") String username, RegisterUserDto registerUserDto, Model model) {
+        try {
+            this.userService.updateProfile(username, registerUserDto);
+        } catch (UserRegisterException e) {
+            String exceptionName = e.getClass().getSimpleName();
+            exceptionName = Character.toLowerCase(exceptionName.charAt(0)) + exceptionName.substring(1);
+            model.addAttribute(exceptionName, true);
+            UserProfileDto userProfileDto = this.userService.getUserProfileDto(username);
+            model.addAttribute("user", userProfileDto);
+
+            return "main/user/editProfile";
+        }
 
         return "redirect:/profile";
     }

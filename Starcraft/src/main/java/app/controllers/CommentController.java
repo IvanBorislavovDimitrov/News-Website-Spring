@@ -25,7 +25,6 @@ public class CommentController {
         this.articleService = articleService;
     }
 
-
     @GetMapping(value = "/addComment/{articleId}/{username}")
     @PreAuthorize("isAuthenticated()")
     public String loadAddCommentPage(@PathVariable String articleId, @PathVariable String username, Model model) {

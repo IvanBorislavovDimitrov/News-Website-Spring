@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <meta charset="UTF-8">
+    <title>Edit profile privileges</title>
+    <link rel="stylesheet" href="/styles/bootstrap.css">
+</head>
+<body>
+<div th:include="fragments/navbar"></div>
+<br>
+<div class="container">
+    <form method="post" th:action="@{/editProfilePage} + '/' + ${username}">
+        <div th:each="privilege : ${privileges}">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" th:name="${#strings.toLowerCase(privilege.getName())}">
+                    <div th:text="${privilege.getName()}"></div>
+                </label>
+            </div>
+            <br>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<br>
+<footer th:include="fragments/footer"></footer>
+</body>
+</html>
