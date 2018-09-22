@@ -15,8 +15,8 @@ public class FileUploadServiceImpl implements FileUploadService {
     private static final String AVATARS_DIRECTORY = "src/main/resources/static/images/avatars";
 
     @Override
-    public void saveAvatar(MultipartFile avatar) throws IOException {
-        Path fileNameAndPath = Paths.get(AVATARS_DIRECTORY, avatar.getOriginalFilename());
+    public void saveAvatar(MultipartFile avatar, String username) throws IOException {
+        Path fileNameAndPath = Paths.get(AVATARS_DIRECTORY, username + "_avatar");
         Files.write(fileNameAndPath, avatar.getBytes());
     }
 }

@@ -39,14 +39,16 @@ public class UserController {
     public String registerUser(RegisterUserDto registerUserDto, Model model,
                                @RequestParam(name = "avatar", required = false) MultipartFile avatar) {
         try {
-            // add the avatar to avatars' dir
             if (avatar != null) {
-                this.fileUploadService.saveAvatar(avatar);
                 String avatarName = avatar.getOriginalFilename();
                 registerUserDto.setAvatarName(avatarName);
             }
             // register user
             this.userService.register(registerUserDto);
+            // add the avatar to avatars' dir
+            if (avatar != null) {
+                this.fileUploadService.saveAvatar(avatar, registerUserDto.getUsername());
+            }
             // send a notification
             this.notificationService.sendNotificationForRegistering(registerUserDto);
         } catch (UserRegisterException e) {
