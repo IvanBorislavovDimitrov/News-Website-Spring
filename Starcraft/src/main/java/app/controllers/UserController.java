@@ -1,7 +1,11 @@
 package app.controllers;
 
-import app.exceptions.user.*;
+import app.dtos.user_dtos.RegisterUserDto;
+import app.dtos.user_dtos.UserProfileDto;
+import app.exceptions.user.UserRegisterException;
+import app.services.api.FileUploadService;
 import app.services.api.NotificationService;
+import app.services.api.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -11,27 +15,36 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
-import app.dtos.user_dtos.RegisterUserDto;
-import app.dtos.user_dtos.UserProfileDto;
-import app.services.api.UserService;
+import java.io.IOException;
 
 @Controller
 public class UserController {
 
     private final UserService userService;
     private final NotificationService notificationService;
+    private final FileUploadService fileUploadService;
 
     @Autowired
-    public UserController(UserService userService, NotificationService notificationService) {
+    public UserController(UserService userService, NotificationService notificationService, FileUploadService fileUploadService) {
         this.userService = userService;
         this.notificationService = notificationService;
+        this.fileUploadService = fileUploadService;
     }
 
     @PostMapping(value = "/register")
     @PreAuthorize("isAnonymous()")
-    public String registerUser(RegisterUserDto registerUserDto, Model model) {
+    public String registerUser(RegisterUserDto registerUserDto, Model model,
+                               @RequestParam(name = "avatar", required = false) MultipartFile avatar) {
         try {
+            // add the avatar to avatars' dir
+            if (avatar != null) {
+                this.fileUploadService.saveAvatar(avatar);
+                String avatarName = avatar.getOriginalFilename();
+                registerUserDto.setAvatarName(avatarName);
+            }
             // register user
             this.userService.register(registerUserDto);
             // send a notification
@@ -42,6 +55,8 @@ public class UserController {
             model.addAttribute(exceptionName, true);
 
             return "main/user/register";
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         return "redirect:/login";

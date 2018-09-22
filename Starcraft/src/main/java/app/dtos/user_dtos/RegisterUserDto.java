@@ -1,9 +1,13 @@
 package app.dtos.user_dtos;
 
+
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.io.File;
 
 public class RegisterUserDto {
 
@@ -32,8 +36,9 @@ public class RegisterUserDto {
     @Size(min = 2, max = 50)
     private String city;
 
-    public RegisterUserDto() {
+    private String avatarName;
 
+    public RegisterUserDto() {
     }
 
     public String getUsername() {
@@ -98,5 +103,13 @@ public class RegisterUserDto {
 
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    public String getAvatarName() {
+        return avatarName;
+    }
+
+    public void setAvatarName(String avatarName) {
+        this.avatarName = avatarName;
     }
 }

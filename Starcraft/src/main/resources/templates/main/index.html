@@ -31,7 +31,7 @@
             <p>This is a website for news. We usually publish news about everything, but our main theme
                 is Starcraft. This is one very interesting game about battles and strategies. We hope
                 that you will enjoy our website.</p>
-            <a class="btn btn-primary btn-lg" href="/news">Read more!</a>
+            <a class="btn btn-primary btn-lg" href="/news">See more!</a>
         </div>
         <!-- /.col-md-4 -->
     </div>
@@ -42,8 +42,8 @@
             <div class="card h-100">
                 <div class="card-body">
                     <h2 class="card-title" th:text="${article1.name}"></h2>
-                    <p class="card-text" th:text="${article1.description}">
-                    </p>
+                    <p class="card-text" th:text="${article1.description}"></p>
+                    <p class="card-header" th:text="${article1.date}"></p>
                 </div>
                 <div class="card-footer">
                     <a th:href="@{/article} + '/' + ${article1.id}" class="btn btn-primary">Learn more</a>
@@ -54,8 +54,8 @@
             <div class="card h-100">
                 <div class="card-body">
                     <h2 class="card-title" th:text="${article2.name}"></h2>
-                    <p class="card-text" th:text="${article2.description}">
-                    </p>
+                    <p class="card-text" th:text="${article2.description}"></p>
+                    <p class="card-header" th:text="${article2.date}"></p>
                 </div>
                 <div class="card-footer">
                     <a th:href="@{/article} + '/' + ${article2.id}" class="btn btn-primary">Learn more</a>
@@ -66,15 +66,14 @@
             <div class="card h-100">
                 <div class="card-body">
                     <h2 class="card-title" th:text="${article3.name}"></h2>
-                    <p class="card-text" th:text="${article3.description}">
-                    </p>
+                    <p class="card-text" th:text="${article3.description}"></p>
+                    <p class="card-header" th:text="${article3.date}"></p>
                 </div>
                 <div class="card-footer">
                     <a th:href="@{/article} + '/' + ${article3.id}" class="btn btn-primary">Learn more</a>
                 </div>
             </div>
         </div>
-
     </div>
 
 

@@ -1,15 +1,13 @@
 package app.models;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import app.models.Privilege;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -39,6 +37,9 @@ public class User {
 
     @Basic
     private String city;
+
+    @Basic
+    private String avatarName;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Comment.class, mappedBy = "user", orphanRemoval = true)
     @OnDelete(action = OnDeleteAction.CASCADE)
@@ -133,4 +134,12 @@ public class User {
         this.city = city;
     }
 
+
+    public String getAvatarName() {
+        return avatarName;
+    }
+
+    public void setAvatarName(String avatarName) {
+        this.avatarName = avatarName;
+    }
 }

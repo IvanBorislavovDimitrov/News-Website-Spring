@@ -1,4 +1,4 @@
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <title>Register</title>
 <head xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
@@ -15,7 +15,7 @@
     <div class="container body-content span=8 offset=2">
 
         <h1>Register Here</h1>
-        <form method="POST" th:action="@{/register}">
+        <form method="POST" th:action="@{/register}" enctype="multipart/form-data">
             <div class="form-group">
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Username</label>
@@ -69,6 +69,11 @@
                 <div class="col-sm-3">
                     <input class="form-control" type="text" name="city"/>
                 </div>
+            </div>
+            <div class="form-group">
+                <label >Avatar</label>
+                <input type="file" class="form-control-file" name="avatar" multiple>
+                <small id="fileHelp" class="form-text text-muted">Upload your file from your computer.</small>
             </div>
 
             <a class="btn btn-danger btn-md" href="/">Cancel</a>

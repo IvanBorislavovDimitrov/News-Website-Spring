@@ -13,6 +13,7 @@ public class UserProfileDto {
     private String lastName;
     private int age;
     private String city;
+    private String avatarName;
     private List<CommentDto> comments;
 
     public UserProfileDto() {
@@ -75,5 +76,11 @@ public class UserProfileDto {
         this.comments = comments;
     }
 
+    public String getAvatarName() {
+        return avatarName;
+    }
 
+    public void setAvatarName(String avatarName) {
+        this.avatarName = avatarName;
+    }
 }

@@ -66,7 +66,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         this.makeValidationsForUser(registerUserDto);
 
         User user = new User();
-        setUserDetails(registerUserDto, user);
+        this.setUserDetails(registerUserDto, user);
+
 
         this.privilegeService.createDefaultPrivilegesIfNeeded();
         this.setRoleToUser(user);
@@ -90,6 +91,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         userProfileDto.setLastName(user.getLastName());
         userProfileDto.setAge(user.getAge());
         userProfileDto.setCity(user.getCity());
+        userProfileDto.setAvatarName(user.getAvatarName());
         user.getComments().forEach(c -> {
             CommentDto commentDto = new CommentDto();
             commentDto.setUsername(c.getUser().getUsername());
@@ -249,6 +251,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         user.setLastName(registerUserDto.getLastName());
         user.setAge(registerUserDto.getAge());
         user.setCity(registerUserDto.getCity());
+        user.setAvatarName(registerUserDto.getAvatarName());
     }
 
     private void updatePrivilege(User user, String role) {
