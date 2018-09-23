@@ -50,4 +50,13 @@ public class DIConfig {
 
         return repo;
     }
+
+    @Bean(name = "Video")
+    @Autowired
+    public GenericRepository<Video> provideVideoGenericRepository(SessionFactory sessionFactory) {
+        GenericRepository<Video> repo = new HibernateRepository<>(sessionFactory);
+        repo.setEntityClass(Video.class);
+
+        return repo;
+    }
 }

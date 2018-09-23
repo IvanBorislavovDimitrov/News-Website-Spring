@@ -41,6 +41,10 @@ public class User {
     @Basic
     private String avatarName;
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user", targetEntity = VideoComment.class,
+        orphanRemoval = true)
+    private Set<VideoComment> videoComments;
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Comment.class, mappedBy = "user", orphanRemoval = true)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Comment> comments;
@@ -141,5 +145,13 @@ public class User {
 
     public void setAvatarName(String avatarName) {
         this.avatarName = avatarName;
+    }
+
+    public Set<VideoComment> getVideoComments() {
+        return videoComments;
+    }
+
+    public void setVideoComments(Set<VideoComment> videoComments) {
+        this.videoComments = videoComments;
     }
 }

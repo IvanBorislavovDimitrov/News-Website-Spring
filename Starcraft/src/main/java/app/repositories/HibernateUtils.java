@@ -16,6 +16,8 @@ public class HibernateUtils {
         configuration.addAnnotatedClass(Article.class);
         configuration.addAnnotatedClass(Comment.class);
         configuration.addAnnotatedClass(Privilege.class);
+        configuration.addAnnotatedClass(Video.class);
+        configuration.addAnnotatedClass(VideoComment.class);
 
         StandardServiceRegistryBuilder serviceRegistryBuilder = new StandardServiceRegistryBuilder();
 

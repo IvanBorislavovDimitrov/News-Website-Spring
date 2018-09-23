@@ -9,4 +9,5 @@ public interface FileUploadService {
 
     void deleteOldAvatar(String avatarName) throws IOException;
 
+    void saveVideo(MultipartFile video, String name) throws IOException;
 }
