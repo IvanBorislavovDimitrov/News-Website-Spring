@@ -189,4 +189,31 @@ public class UserController {
 
         return "redirect:/profile";
     }
+
+    @GetMapping(value = "/deleteProfileAvatar/{username}")
+    @PreAuthorize("isAuthenticated()")
+    public String loadDeleteProfileAvatarPage(@PathVariable(name = "username") String username, Model model) {
+        String currentLoggedUsername = SecurityContextHolder.getContext().getAuthentication().getName();
+        if (!currentLoggedUsername.equals(username)) {
+            return "main/notAllowed/forbidden";
+        }
+
+        UserProfileDto userProfileDto = this.userService.getUserProfileDto(username);
+        model.addAttribute("user", userProfileDto);
+
+        return "main/user/deleteProfileAvatar";
+    }
+
+    @PostMapping(value = "/deleteProfileAvatar/{username}")
+    @PreAuthorize("isAuthenticated()")
+    public String deleteProfilePicture(@PathVariable(name = "username") String username) {
+        String avatarName = this.userService.removeProfileAvatar(username);
+        try {
+            this.fileUploadService.deleteOldAvatar(avatarName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "redirect:/profile";
+    }
 }

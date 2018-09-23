@@ -170,9 +170,19 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     public List<String> getAllUserEmailsWithNames() {
-        List<String> allEmailsWithUsersnames = this.userRepository.getAll().stream().map(u -> u.getEmail() + "&" + u.getUsername()).collect(Collectors.toList());
+        return this.userRepository.getAll().stream()
+                .map(u -> u.getEmail() + "&" + u.getUsername())
+                .collect(Collectors.toList());
+    }
 
-        return allEmailsWithUsersnames;
+    @Override
+    public String removeProfileAvatar(String username) {
+        User byUsername = this.getByUsername(username);
+        String currentAvatarName = byUsername.getAvatarName();
+        byUsername.setAvatarName(null);
+        this.userRepository.update(byUsername);
+
+        return currentAvatarName;
     }
 
     private void checkIfUsernameIsTaken(String username) {

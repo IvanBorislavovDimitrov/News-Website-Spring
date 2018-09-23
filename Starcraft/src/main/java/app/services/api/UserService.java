@@ -24,4 +24,6 @@ public interface UserService {
     void changePrivileges(String username, ChangePrivilegesDto privilegesDto);
 
 	List<String> getAllUserEmailsWithNames();
+
+    String removeProfileAvatar(String username);
 }

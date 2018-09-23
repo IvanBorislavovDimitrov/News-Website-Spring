@@ -48,6 +48,8 @@
     <a class="btn btn-primary btn-md"
        th:href="@{editProfile} + '/' + ${user.getUsername()}" role="button">Edit</a>
     <a class="btn btn-danger btn-md"
+       th:href="@{deleteProfileAvatar} + '/' + ${user.getUsername()}" role="button">Delete Avatar</a>
+    <a class="btn btn-danger btn-md"
        th:href="@{deleteProfile} + '/' + ${user.getUsername()}" role="button">Delete</a>
     <br>
 </div>

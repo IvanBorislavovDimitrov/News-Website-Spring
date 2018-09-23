@@ -1,0 +1,34 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<title>Profile</title>
+<head xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <meta charset="UTF-8">
+    <title>Delete profile avatar</title>
+    <link rel="stylesheet" href="/styles/bootstrap.css">
+</head>
+<body>
+<div th:include="fragments/navbar"></div>
+<br>
+<div class="jumbotron container">
+    <h2 th:text="${user.getUsername()} + '\'s profle (' + ${user.getFirstName()} + ' ' + ${user.getLastName()} + ')'"></h2>
+
+    <form method="post" th:action="@{/deleteProfileAvatar/} + ${user.username}">
+        <div class="row my-4">
+            <div class="col-lg-4">
+                <div th:if="${user.avatarName}">
+                    <img width="300px" height="500px" class="img-fluid rounded"
+                         th:src="@{/images/avatars/} + ${user.avatarName}" alt="something went wrong">
+                </div>
+                <div th:unless="${user.avatarName}">
+                    <img class="img-fluid rounded" th:src="@{/images/avatars/no-image-available.png}" alt="newspaper">
+                </div>
+            </div>
+        </div>
+        <input class="btn btn-danger" type="submit" name="value" value="Delete avatar"/>
+    </form>
+</div>
+
+<footer th:include="fragments/footer"></footer>
+</body>
+</html>

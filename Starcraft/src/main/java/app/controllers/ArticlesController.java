@@ -3,6 +3,7 @@ package app.controllers;
 import app.pages.Page;
 import app.services.api.NotificationService;
 import app.services.api.UserService;
+import app.utilities.Helper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -23,6 +24,8 @@ import java.util.stream.Collectors;
 
 @Controller
 public class ArticlesController {
+
+    private static final int MAX_ARTICLE_ON_PAGE = 6;
 
     private final NotificationService notificationService;
     private final ArticleService articleService;
@@ -104,12 +107,11 @@ public class ArticlesController {
             @RequestParam(name = "page", defaultValue = "1") String page, Model model) {
         List<ArticleDto> news = this.articleService.getAll().stream()
                 .filter(a -> a.getName().toLowerCase().contains(articleName.toLowerCase()))
+                .sorted((a1, a2) -> a2.getDate().compareTo(a1.getDate()))
                 .collect(Collectors.toList());
 
-        news.sort((a1, a2) -> a2.getDate().compareTo(a1.getDate()));
-
         int size = news.size();
-        int pagesCount = (int) Math.ceil(size / 2D);
+        int pagesCount = (int) Math.ceil(size / (double) MAX_ARTICLE_ON_PAGE);
         Page[] pages = new Page[pagesCount];
         int count = 0;
         this.addArticlesToPages(news, pages, count);
@@ -134,13 +136,6 @@ public class ArticlesController {
     }
 
     private void addArticlesToPages(List<ArticleDto> news, Page[] pages, int count) {
-        for (int i = 0; count < news.size(); i++) {
-            pages[i] = new Page();
-            pages[i].setNumber(i + 1);
-            pages[i].getArticles().add(news.get(count++));
-            if (count == news.size())
-                break;
-            pages[i].getArticles().add(news.get(count++));
-        }
+        Helper.addArticlesToPages(news, pages, count, MAX_ARTICLE_ON_PAGE);
     }
 }
