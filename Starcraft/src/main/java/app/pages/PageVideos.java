@@ -1,6 +1,6 @@
 package app.pages;
 
-import app.models.Video;
+import app.dtos.video_dtos.VideoDto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 public class PageVideos {
 
     private int number;
-    private List<Video> videos;
+    private List<VideoDto> videos;
 
     public PageVideos() {
         this.videos = new ArrayList<>();
@@ -22,11 +22,11 @@ public class PageVideos {
         this.number = number;
     }
 
-    public List<Video> getVideos() {
+    public List<VideoDto> getVideos() {
         return videos;
     }
 
-    public void setVideos(List<Video> videos) {
+    public void setVideos(List<VideoDto> videos) {
         this.videos = videos;
     }
 }

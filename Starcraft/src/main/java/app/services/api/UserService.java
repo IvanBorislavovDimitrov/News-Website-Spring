@@ -26,4 +26,6 @@ public interface UserService {
 	List<String> getAllUserEmailsWithNames();
 
     String removeProfileAvatar(String username);
+
+    void update(String username);
 }

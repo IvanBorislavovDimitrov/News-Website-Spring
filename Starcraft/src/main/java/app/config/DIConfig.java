@@ -59,4 +59,13 @@ public class DIConfig {
 
         return repo;
     }
+
+    @Bean(name = "VideoComment")
+    @Autowired
+    public GenericRepository<VideoComment> provideVideoCommentGenericRepository(SessionFactory sessionFactory) {
+        GenericRepository<VideoComment> repo = new HibernateRepository<>(sessionFactory);
+        repo.setEntityClass(VideoComment.class);
+
+        return repo;
+    }
 }

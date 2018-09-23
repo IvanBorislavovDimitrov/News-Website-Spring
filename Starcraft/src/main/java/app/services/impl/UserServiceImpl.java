@@ -185,6 +185,13 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return currentAvatarName;
     }
 
+    @Override
+    public void update(String username) {
+        User byUsername = this.getByUsername(username);
+
+        this.userRepository.update(byUsername);
+    }
+
     private void checkIfUsernameIsTaken(String username) {
         if (this.userRepository.getAll().stream().anyMatch(u -> u.getUsername().equals(username))) {
             throw new UsernameTakenException("This username is already taken!");

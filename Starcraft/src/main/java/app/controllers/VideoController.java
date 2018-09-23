@@ -1,5 +1,7 @@
 package app.controllers;
 
+import app.dtos.video_dtos.VideoCommentDto;
+import app.dtos.video_dtos.VideoDto;
 import app.models.Video;
 import app.models.VideoComment;
 import app.pages.Page;
@@ -9,6 +11,7 @@ import app.services.api.VideoService;
 import app.utilities.Helper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -64,7 +67,7 @@ public class VideoController {
 
     @GetMapping(value = "/videos")
     public String loadVideosPage(Model model, @RequestParam(name = "page", defaultValue = "1") String page) {
-        List<Video> videos = this.videoService.getAll();
+        List<VideoDto> videos = this.videoService.getAll();
 
         int size = videos.size();
         int pagesCount = (int) Math.ceil(size / (double) MAX_VIDEO_ON_PAGE);
@@ -92,7 +95,7 @@ public class VideoController {
     @GetMapping(value = "/watchVideo/{videoId}")
     @PreAuthorize("isAuthenticated()")
     public String loadSeeFullVideoPage(@PathVariable(name = "videoId") String videoId, Model model) {
-        Video video = this.videoService.getById(Integer.parseInt(videoId));
+        VideoDto video = this.videoService.getById(Integer.parseInt(videoId));
 
         model.addAttribute("video", video);
         model.addAttribute("comments", video.getVideoComments());
@@ -102,8 +105,10 @@ public class VideoController {
 
     @PostMapping(value = "/watchVideo/{videoId}")
     @PreAuthorize("isAuthenticated()")
-    public String addCommentToVideo(@PathVariable(name = "videoId") String videoId, Model model, VideoComment videoComment) {
-        
+    public String addCommentToVideo(@PathVariable(name = "videoId") String videoId, Model model, VideoCommentDto videoComment) {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        this.videoService.addComment(Integer.parseInt(videoId), videoComment, username);
+
         return "redirect:/watchVideo/" + videoId;
     }
 }

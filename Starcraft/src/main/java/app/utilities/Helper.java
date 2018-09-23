@@ -1,6 +1,7 @@
 package app.utilities;
 
 import app.dtos.article_dtos.ArticleDto;
+import app.dtos.video_dtos.VideoDto;
 import app.models.Video;
 import app.pages.Page;
 import app.pages.PageVideos;
@@ -19,7 +20,7 @@ public class Helper {
         }
     }
 
-    public static void addVideosToPages(List<Video> videos, PageVideos[] pages, int count, int maxArticles) {
+    public static void addVideosToPages(List<VideoDto> videos, PageVideos[] pages, int count, int maxArticles) {
         for (int i = 0; count < videos.size(); i++) {
             pages[i] = new PageVideos();
             pages[i].setNumber(i + 1);

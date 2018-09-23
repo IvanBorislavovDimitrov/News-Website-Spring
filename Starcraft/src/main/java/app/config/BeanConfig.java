@@ -1,5 +1,6 @@
 package app.config;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.security.core.Authentication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,12 @@ public class BeanConfig {
     public PasswordEncoder getPasswordEncoder() {
 
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public ModelMapper modelMapper() {
+
+        return new ModelMapper();
     }
 
     @Bean
