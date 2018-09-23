@@ -1,0 +1,30 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<title>Videos</title>
+<head xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <meta charset="UTF-8">
+    <title>Videos</title>
+    <link rel="stylesheet" href="/styles/bootstrap.css">
+</head>
+<body>
+<div th:include="fragments/navbar"></div>
+<br>
+
+<div class="container">
+    <div class="row">
+        <div th:each="video : ${videos}">
+            <div class="col-sm">
+                <video width="320" height="240" controls>
+                    <source th:src="@{/content/videos/} + ${video.name} + '.mp4'" type="video/mp4"/>
+                </video>
+                <p th:text="${video.name}"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br>
+<footer th:include="fragments/footer"></footer>
+</body>
+</html>

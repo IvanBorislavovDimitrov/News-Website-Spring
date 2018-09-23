@@ -38,8 +38,8 @@ public class FileUploadServiceImpl implements FileUploadService {
     }
 
     @Override
-    public void saveVideo(MultipartFile video, String name, MultipartFile thumbnail, String thumbnailName) throws IOException {
-        if (video.getOriginalFilename() != null && thumbnail.getOriginalFilename() != null) {
+    public void saveVideo(MultipartFile video, String name) throws IOException {
+        if (video.getOriginalFilename() != null) {
             String videoExtension = video.getOriginalFilename()
                     .substring(video.getOriginalFilename().lastIndexOf("."));
             if (!videoExtension.equals(".mp4")) {
@@ -47,14 +47,6 @@ public class FileUploadServiceImpl implements FileUploadService {
             }
             Path fileNameAndPath = Paths.get(VIDEO_DIRECTORY, name + videoExtension);
             Files.write(fileNameAndPath, video.getBytes());
-
-            String thumbnailExtension = thumbnail.getOriginalFilename()
-                    .substring(thumbnail.getOriginalFilename().lastIndexOf("."));
-            if (!thumbnailExtension.equals(".jpg") && !thumbnailExtension.equals(".png")) {
-                throw new IllegalArgumentException("Unsupported image format!\n" + thumbnailExtension);
-            }
-            Path thumbnailPath = Paths.get(VIDEO_THUMBNAILS, thumbnailName);
-            Files.write(thumbnailPath, thumbnail.getBytes());
         }
     }
 }

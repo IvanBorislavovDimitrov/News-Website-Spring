@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class VideoServiceImpl implements VideoService {
 
@@ -19,14 +21,18 @@ public class VideoServiceImpl implements VideoService {
 
 
     @Override
-    public void save(String name, String thumbnailName) {
+    public void save(String name) {
         Video video = new Video();
         if (name == null) {
             throw new IllegalArgumentException("Name mustn't be null");
         }
         video.setName(name);
-        video.setThumbnailName(thumbnailName);
 
         this.videoRepository.save(video);
+    }
+
+    @Override
+    public List<Video> getAll() {
+        return this.videoRepository.getAll();
     }
 }

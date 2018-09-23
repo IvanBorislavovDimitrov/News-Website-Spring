@@ -1,5 +1,6 @@
 package app.controllers;
 
+import app.models.Video;
 import app.services.api.FileUploadService;
 import app.services.api.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 public class VideoController {
@@ -35,25 +37,30 @@ public class VideoController {
     @PostMapping(value = "/uploadVideo")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String uploadVideo(@RequestParam(name = "video") MultipartFile video,
-                              @RequestParam(name = "name") String name,
-                              @RequestParam(name = "thumbnail") MultipartFile thumbnail, Model model) {
-        if (video.getOriginalFilename() == null || thumbnail.getOriginalFilename() == null ||
-        video.getOriginalFilename().trim().equals("") || thumbnail.getOriginalFilename().equals("") ||
+                              @RequestParam(name = "name") String name, Model model) {
+        if (video.getOriginalFilename() == null ||
+                video.getOriginalFilename().trim().equals("") ||
                 name == null || name.equals("")) {
             model.addAttribute("invalidForm", true);
 
             return "main/video/uploadVideo";
         }
-        String thumbnailName = name + "_thumbnail" + thumbnail.getOriginalFilename()
-                .substring(thumbnail.getOriginalFilename().lastIndexOf("."));
 
-        this.videoService.save(name, thumbnailName);
+        this.videoService.save(name);
         try {
-            this.fileUploadService.saveVideo(video, name, thumbnail, thumbnailName);
+            this.fileUploadService.saveVideo(video, name);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         return "redirect:/";
+    }
+
+    @GetMapping(value = "/videos")
+    public String loadVideosPage(Model model) {
+        List<Video> videos = this.videoService.getAll();
+        model.addAttribute("videos", videos);
+
+        return "main/video/videos";
     }
 }

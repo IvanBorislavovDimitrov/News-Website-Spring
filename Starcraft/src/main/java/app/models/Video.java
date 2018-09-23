@@ -15,9 +15,6 @@ public class Video {
     private String name;
 
     @Basic
-    private String thumbnailName;
-
-    @Basic
     private int likes;
 
     @Basic
@@ -68,13 +65,5 @@ public class Video {
 
     public void setVideoComments(Set<VideoComment> videoComments) {
         this.videoComments = videoComments;
-    }
-
-    public String getThumbnailName() {
-        return thumbnailName;
-    }
-
-    public void setThumbnailName(String thumbnailName) {
-        this.thumbnailName = thumbnailName;
     }
 }
