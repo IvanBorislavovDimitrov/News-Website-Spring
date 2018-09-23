@@ -2,32 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="529d0096-1d97-4a65-aeb6-fb96a93ea7c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/controllers/VideoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/models/Video.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/models/VideoComment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/services/api/VideoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/services/impl/VideoServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/avatars/kondakat_avatar.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/content/avatars/kondakat_avatar.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/avatars/no-image-available.png" beforeDir="false" afterPath="$PROJECT_DIR$/content/avatars/no-image-available.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/avatars/pedal_avatar.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/content/avatars/pedal_avatar.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/avatars/user_avatar.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/content/avatars/user_avatar.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/indexWallpaper.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/content/main/indexWallpaper.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/ownerLogo.png" beforeDir="false" afterPath="$PROJECT_DIR$/content/main/ownerLogo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/config/AdditionalResourceWebConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/config/AdditionalResourceWebConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/config/DIConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/config/DIConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/repositories/HibernateUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/repositories/HibernateUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/services/api/FileUploadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/services/api/FileUploadService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/services/impl/FileUploadServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/services/impl/FileUploadServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/admin/adminPanel.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/admin/adminPanel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/admin/ownerInformation.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/admin/ownerInformation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/user/editProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/user/editProfile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/user/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/user/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/user/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/user/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/user/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/user/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/app/controllers/ArticlesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/controllers/ArticlesController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/app/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/models/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/app/repositories/HibernateUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/repositories/HibernateUtils.class" afterDir="false" />
@@ -72,7 +47,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="3" />
+          <entry key="class" value="4" />
           <entry key="css" value="6" />
           <entry key="gif" value="1" />
           <entry key="html" value="172" />
@@ -85,7 +60,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="3" />
+          <entry key="CLASS" value="4" />
           <entry key="CSS" value="6" />
           <entry key="HTML" value="172" />
           <entry key="Image" value="20" />
@@ -99,9 +74,9 @@
           <entry key="css" value="10" />
           <entry key="dummy" value="10" />
           <entry key="html" value="8721" />
-          <entry key="java" value="16944" />
+          <entry key="java" value="16950" />
           <entry key="properties" value="236" />
-          <entry key="txt" value="778" />
+          <entry key="txt" value="804" />
           <entry key="xml" value="6" />
         </counts>
       </usages-collector>
@@ -109,8 +84,8 @@
         <counts>
           <entry key="CSS" value="10" />
           <entry key="HTML" value="8721" />
-          <entry key="JAVA" value="16944" />
-          <entry key="PLAIN_TEXT" value="788" />
+          <entry key="JAVA" value="16950" />
+          <entry key="PLAIN_TEXT" value="814" />
           <entry key="Properties" value="236" />
           <entry key="XML" value="6" />
         </counts>
@@ -119,10 +94,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/app/services/impl/FileUploadServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
+            <state relative-caret-position="385">
               <caret line="43" column="77" lean-forward="true" selection-start-line="43" selection-start-column="77" selection-end-line="43" selection-end-column="77" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -135,7 +110,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/app/config/WebSecurityConfig.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="516">
-              <caret line="42" column="61" lean-forward="true" selection-start-line="42" selection-start-column="61" selection-end-line="42" selection-end-column="61" />
+              <caret line="42" column="61" selection-start-line="42" selection-start-column="61" selection-end-line="42" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -153,28 +128,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/services/impl/CommentServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/services/impl/ArticleServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+            <state relative-caret-position="-1001">
+              <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/services/impl/ArticleServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1001">
-              <caret line="32" column="29" lean-forward="true" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/app/controllers/VideoController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="37" selection-start-line="37" selection-end-line="37" />
+            <state relative-caret-position="313">
+              <caret line="39" selection-start-line="39" selection-end-line="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -204,7 +170,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/app/services/impl/VideoServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="468">
-              <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+              <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -216,7 +182,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/app/config/DIConfig.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="511">
-              <caret line="57" column="41" lean-forward="true" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
+              <caret line="57" column="41" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -311,10 +277,10 @@
         <option value="$PROJECT_DIR$/src/main/java/app/config/DIConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/app/services/impl/VideoServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/app/config/AdditionalResourceWebConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/app/services/impl/FileUploadServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/app/controllers/VideoController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/main/video/uploadVideo.html" />
+        <option value="$PROJECT_DIR$/src/main/java/app/services/impl/FileUploadServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -361,6 +327,12 @@
             <path>
               <item name="Starcraft" type="b2602c69:ProjectViewProjectNode" />
               <item name="Starcraft" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
+              <item name="videos" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Starcraft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Starcraft" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -401,16 +373,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Starcraft" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Starcraft" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Starcraft" type="b2602c69:ProjectViewProjectNode" />
@@ -471,7 +433,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537708989181" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537709024737" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -543,7 +505,7 @@
       <workItem from="1537615396312" duration="410000" />
       <workItem from="1537616349644" duration="17154000" />
       <workItem from="1537700245073" duration="19000" />
-      <workItem from="1537700363206" duration="8423000" />
+      <workItem from="1537700363206" duration="8671000" />
     </task>
     <task id="LOCAL-00001" summary="layout changed">
       <created>1537298164592</created>
@@ -692,17 +654,24 @@
       <option name="project" value="LOCAL" />
       <updated>1537703884091</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Upload videos implemented">
+      <created>1537709051177</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1537709051177</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103760000" />
+    <option name="totallyTimeSpent" value="104008000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4976415" visible="true" weight="0.2751678" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4976415" visible="true" weight="0.2751678" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Persistence" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -714,7 +683,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3385269" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.33144477" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.33144477" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -792,7 +761,8 @@
     <MESSAGE value="Better design for users' avatars" />
     <MESSAGE value="Users have profile pictures." />
     <MESSAGE value="Better design for pages, delete profile image" />
-    <option name="LAST_COMMIT_MESSAGE" value="Better design for pages, delete profile image" />
+    <MESSAGE value="Upload videos implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Upload videos implemented" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -874,7 +844,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/avatars/no-image-available.png" />
     <entry file="file://$PROJECT_DIR$/images/asd.html" />
     <entry file="file://$PROJECT_DIR$/content/avatars/petko_avatar.jpg">
       <provider selected="true" editor-type-id="images" />
@@ -1207,14 +1176,14 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/app/services/impl/ArticleServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1001">
-          <caret line="32" column="29" lean-forward="true" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+          <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/app/services/impl/VideoServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
-          <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1224,14 +1193,14 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/app/config/DIConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="511">
-          <caret line="57" column="41" lean-forward="true" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
+          <caret line="57" column="41" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/app/config/WebSecurityConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="516">
-          <caret line="42" column="61" lean-forward="true" selection-start-line="42" selection-start-column="61" selection-end-line="42" selection-end-column="61" />
+          <caret line="42" column="61" selection-start-line="42" selection-start-column="61" selection-end-line="42" selection-end-column="61" />
         </state>
       </provider>
     </entry>
@@ -1239,16 +1208,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="12" column="55" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/services/impl/FileUploadServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="43" column="77" lean-forward="true" selection-start-line="43" selection-start-column="77" selection-end-line="43" selection-end-column="77" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1269,10 +1228,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.0.7.RELEASE/spring-core-5.0.7.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="106" selection-start-line="106" selection-end-line="106" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/app/controllers/VideoController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        <state relative-caret-position="313">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/services/impl/FileUploadServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="43" column="77" lean-forward="true" selection-start-line="43" selection-start-column="77" selection-end-line="43" selection-end-column="77" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
