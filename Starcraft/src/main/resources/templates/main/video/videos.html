@@ -22,8 +22,48 @@
         </div>
     </div>
 </div>
-
-
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3 py-5 d-flex">
+            <ul class="pagination mx-auto">
+                <li class="page-item">
+                    <form method="get">
+                        <div th:if="${pageNumber - 1} > ${minPages}">
+                            <button class="page-link" name="page" th:value="${pageNumber - 1}" aria-label="Next">
+                                <span aria-hidden="true">«</span>
+                                <span class="sr-only">Previous</span>
+                            </button>
+                        </div>
+                    </form>
+                </li>
+                <div th:each="page : ${pages}">
+                    <li class="page-item">
+                        <form method="get">
+                            <div th:if="${page.number} == ${pageNumber}">
+                                <div class="page-item active">
+                                    <input class="page-link" type="submit" name="page" th:value="${page.number}"/>
+                                </div>
+                            </div>
+                            <div th:unless="${page.number} == ${pageNumber}">
+                                <input class="page-link" type="submit" name="page" th:value="${page.number}"/>
+                            </div>
+                        </form>
+                    </li>
+                </div>
+                <li class="page-item">
+                    <form method="get">
+                        <div th:if="${pageNumber + 1} < ${maxPages}">
+                            <button class="page-link" name="page" th:value="${pageNumber + 1}" aria-label="Next">
+                                <span aria-hidden="true">»</span>
+                                <span class="sr-only">Next</span>
+                            </button>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 <br>
 <footer th:include="fragments/footer"></footer>
 </body>

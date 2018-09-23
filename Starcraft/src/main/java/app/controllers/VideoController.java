@@ -1,8 +1,11 @@
 package app.controllers;
 
 import app.models.Video;
+import app.pages.Page;
+import app.pages.PageVideos;
 import app.services.api.FileUploadService;
 import app.services.api.VideoService;
+import app.utilities.Helper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -18,6 +21,7 @@ import java.util.List;
 @Controller
 public class VideoController {
 
+    private static final int MAX_VIDEO_ON_PAGE = 6;
     private final VideoService videoService;
     private final FileUploadService fileUploadService;
 
@@ -57,9 +61,28 @@ public class VideoController {
     }
 
     @GetMapping(value = "/videos")
-    public String loadVideosPage(Model model) {
+    public String loadVideosPage(Model model, @RequestParam(name = "page", defaultValue = "1") String page) {
         List<Video> videos = this.videoService.getAll();
-        model.addAttribute("videos", videos);
+
+        int size = videos.size();
+        int pagesCount = (int) Math.ceil(size / (double) MAX_VIDEO_ON_PAGE);
+        PageVideos[] pages = new PageVideos[pagesCount];
+        int count = 0;
+        Helper.addVideosToPages(videos, pages, count, MAX_VIDEO_ON_PAGE);
+
+        int requiredPage = Integer.parseInt(page) - 1;
+
+        if (pagesCount == 0 || videos.size() == 0) {
+            model.addAttribute("areThereNews", false);
+
+            return "/main/news/search";
+        }
+
+        model.addAttribute("videos", pages[requiredPage].getVideos());
+        model.addAttribute("pages", pages);
+        model.addAttribute("pageNumber", requiredPage + 1);
+        model.addAttribute("maxPages", pagesCount + 1);
+        model.addAttribute("minPages", 0);
 
         return "main/video/videos";
     }
