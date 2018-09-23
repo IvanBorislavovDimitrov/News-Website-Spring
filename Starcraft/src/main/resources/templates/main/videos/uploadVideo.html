@@ -1,0 +1,38 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<title>Login</title>
+<head xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <meta charset="UTF-8">
+    <title>Upload video</title>
+    <link rel="stylesheet" href="/styles/bootstrap.css">
+</head>
+<body>
+<div th:include="fragments/navbar"></div>
+<br>
+
+<div class="jumbotron container">
+    <h1>Upload video</h1>
+    <form method="POST" th:action="@{/register}" enctype="multipart/form-data">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-3">
+                <input class="form-control" type="text" name="email"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label >Video</label>
+            <input type="file" class="form-control-file" name="video" multiple>
+            <small id="fileHelp" class="form-text text-muted">Upload video file from your computer.</small>
+        </div>
+
+        <a class="btn btn-danger btn-md" href="/">Cancel</a>
+        <input class="btn btn-primary" type="submit" name="value" value="Upload"/>
+    </form>
+</div>
+
+<br>
+<footer th:include="fragments/footer"></footer>
+</body>
+</html>

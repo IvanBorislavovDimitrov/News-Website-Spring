@@ -1,0 +1,76 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<title>Login</title>
+<head xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <meta charset="UTF-8">
+    <title>Video9</title>
+    <link rel="stylesheet" href="/styles/bootstrap.css">
+</head>
+<body>
+<div th:include="fragments/navbar"></div>
+<br>
+
+<div class="jumbotron-fluid container">
+    <div class="container">
+        <video width="1280" height="720" controls>
+            <source th:src="@{/content/videos/} + ${video.name} + '.mp4'" type="video/mp4"/>
+        </video>
+    </div>
+    <br>
+    <div class="col-sm">
+        <h4>Add comment</h4>
+        <form method="post" th:action="@{/watchVideo/{videoId}(videoId=${video.id})}">
+
+            <div class="form-group">
+                <label>Comment: </label>
+                <div class="col-sm-4">
+                    <textarea class="form-control" name="value" rows="4"></textarea>
+                </div>
+            </div>
+            <a class="btn btn-danger btn-md"
+               role="button">Cancel</a>
+            <button type="submit" class="btn btn-primary">Comment</button>
+        </form>
+        <br>
+        <h2>Comments:</h2>
+        <br>
+        <div class="row">
+
+            <div th:each="c : ${comments}">
+                <div class="card border-primary mb-3" style="width: 23rem; height: 17rem">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="btn btn-group-justified btn-md" th:text="${c.getUsername()}"></div>
+                            <div th:if="${c.getUsername()} == ${#authentication.getPrincipal().getUsername()}">
+                                <a class="btn btn-primary btn-md" th:href="@{/editComment/} + ${c.getId()}">Edit</a>
+                            </div>
+                            <br>
+                            <div sec:authorize="hasRole('ROLE_USER')">
+                                <div th:if="${c.getUsername()} == ${#authentication.getPrincipal().getUsername()}">
+                                    <a class="btn btn-danger btn-md"
+                                       th:href="@{/deleteComment/} + ${c.getId()}">Delete</a>
+                                </div>
+                            </div>
+
+                            <div sec:authorize="hasRole('ROLE_ADMIN')">
+                                <a class="btn btn-danger btn-md" th:href="@{/deleteComment/} + ${c.getId()}">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${c.getValue()}"></h5>
+                        <p class="card-text" th:text="${c.getDate()}"></p>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+
+
+<br>
+<footer th:include="fragments/footer"></footer>
+</body>
+</html>

@@ -1,6 +1,7 @@
 package app.controllers;
 
 import app.models.Video;
+import app.models.VideoComment;
 import app.pages.Page;
 import app.pages.PageVideos;
 import app.services.api.FileUploadService;
@@ -11,6 +12,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -35,7 +37,7 @@ public class VideoController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String loadUploadVideoPage() {
 
-        return "main/video/uploadVideo";
+        return "main/videos/uploadVideo";
     }
 
     @PostMapping(value = "/uploadVideo")
@@ -47,7 +49,7 @@ public class VideoController {
                 name == null || name.equals("")) {
             model.addAttribute("invalidForm", true);
 
-            return "main/video/uploadVideo";
+            return "main/videos/uploadVideo";
         }
 
         this.videoService.save(name);
@@ -84,6 +86,24 @@ public class VideoController {
         model.addAttribute("maxPages", pagesCount + 1);
         model.addAttribute("minPages", 0);
 
-        return "main/video/videos";
+        return "main/videos/videos";
+    }
+
+    @GetMapping(value = "/watchVideo/{videoId}")
+    @PreAuthorize("isAuthenticated()")
+    public String loadSeeFullVideoPage(@PathVariable(name = "videoId") String videoId, Model model) {
+        Video video = this.videoService.getById(Integer.parseInt(videoId));
+
+        model.addAttribute("video", video);
+        model.addAttribute("comments", video.getVideoComments());
+
+        return "main/videos/video";
+    }
+
+    @PostMapping(value = "/watchVideo/{videoId}")
+    @PreAuthorize("isAuthenticated()")
+    public String addCommentToVideo(@PathVariable(name = "videoId") String videoId, Model model, VideoComment videoComment) {
+        
+        return "redirect:/watchVideo/" + videoId;
     }
 }

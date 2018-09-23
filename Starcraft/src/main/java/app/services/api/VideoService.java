@@ -9,4 +9,6 @@ public interface VideoService {
     void save(String name);
 
     List<Video> getAll();
+
+    Video getById(int id);
 }

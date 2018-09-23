@@ -1,6 +1,7 @@
 package app.models;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -19,6 +20,9 @@ public class Video {
 
     @Basic
     private int dislikes;
+
+    @Basic
+    private Date date;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "video", targetEntity = VideoComment.class, fetch = FetchType.EAGER,
             orphanRemoval = true)
@@ -65,5 +69,13 @@ public class Video {
 
     public void setVideoComments(Set<VideoComment> videoComments) {
         this.videoComments = videoComments;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

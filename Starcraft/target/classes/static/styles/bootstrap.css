@@ -9808,9 +9808,9 @@ table-primary, table-secondary, table-success, table-info, table-warning, table-
     font-size: 0.875em
 }
 .vertical-center {
-    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-    min-height: 100vh; /* These two lines are counted as one :-)       */
+    height:100%;
+    width:100%;
 
-    display: flex;
-    align-items: center;
+    text-align: center;  /* align the inline(-block) elements horizontally */
+    font: 0/0 a;         /* remove the gap between inline(-block) elements */
 }

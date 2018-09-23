@@ -14,10 +14,11 @@
     <div class="row">
         <div th:each="video : ${videos}">
             <div class="col-sm">
-                <video width="320" height="240" controls>
+                <video width="350" height="240" controls>
                     <source th:src="@{/content/videos/} + ${video.name} + '.mp4'" type="video/mp4"/>
                 </video>
                 <p th:text="${video.name}"></p>
+                <a class="btn btn-primary btn-sm" th:href="@{/watchVideo/} + ${video.id}">See more</a>
             </div>
         </div>
     </div>

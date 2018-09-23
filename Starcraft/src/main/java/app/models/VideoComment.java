@@ -1,6 +1,7 @@
 package app.models;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "video_comments")
@@ -20,6 +21,9 @@ public class VideoComment {
     @ManyToOne
     @JoinColumn(name = "video_id", referencedColumnName = "id")
     private Video video;
+
+    @Basic
+    private Date date;
 
     public VideoComment() {
     }
@@ -54,5 +58,13 @@ public class VideoComment {
 
     public void setVideo(Video video) {
         this.video = video;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

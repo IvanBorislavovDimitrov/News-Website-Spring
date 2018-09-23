@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -19,7 +23,6 @@ public class VideoServiceImpl implements VideoService {
         this.videoRepository = videoRepository;
     }
 
-
     @Override
     public void save(String name) {
         Video video = new Video();
@@ -27,12 +30,23 @@ public class VideoServiceImpl implements VideoService {
             throw new IllegalArgumentException("Name mustn't be null");
         }
         video.setName(name);
-
+        Date date = null;
+        try {
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(LocalDate.now().toString());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        video.setDate(date);
         this.videoRepository.save(video);
     }
 
     @Override
     public List<Video> getAll() {
         return this.videoRepository.getAll();
+    }
+
+    @Override
+    public Video getById(int id) {
+        return this.videoRepository.getById(id);
     }
 }
