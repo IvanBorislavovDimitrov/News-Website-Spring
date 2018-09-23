@@ -12,11 +12,23 @@ import java.nio.file.Paths;
 @Service
 public class FileUploadServiceImpl implements FileUploadService {
 
-    private static final String AVATARS_DIRECTORY = "src/main/resources/static/images/avatars";
+    private static final String AVATARS_DIRECTORY = "images/avatars";
 
     @Override
     public void saveAvatar(MultipartFile avatar, String username) throws IOException {
-        Path fileNameAndPath = Paths.get(AVATARS_DIRECTORY, username + "_avatar");
-        Files.write(fileNameAndPath, avatar.getBytes());
+        if (avatar.getOriginalFilename() != null) {
+            String extension = avatar.getOriginalFilename()
+                    .substring(avatar.getOriginalFilename().lastIndexOf("."));
+            Path fileNameAndPath = Paths.get(AVATARS_DIRECTORY, username + "_avatar" + extension);
+            Files.write(fileNameAndPath, avatar.getBytes());
+        }
+    }
+
+    @Override
+    public void deleteOldAvatar(String avatarName) throws IOException {
+        if (avatarName != null) {
+            Path fileNameAndPath = Paths.get(AVATARS_DIRECTORY, avatarName);
+            Files.delete(fileNameAndPath);
+        }
     }
 }

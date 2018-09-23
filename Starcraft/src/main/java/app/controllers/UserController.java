@@ -39,11 +39,13 @@ public class UserController {
     public String registerUser(RegisterUserDto registerUserDto, Model model,
                                @RequestParam(name = "avatar", required = false) MultipartFile avatar) {
         try {
-            if (avatar != null) {
-                String avatarName = avatar.getOriginalFilename();
-                registerUserDto.setAvatarName(avatarName);
-            }
             // register user
+            if (avatar != null && avatar.getOriginalFilename() != null && !avatar.getOriginalFilename().trim().equals("")) {
+                String extension = avatar.getOriginalFilename()
+                        .substring(avatar.getOriginalFilename().lastIndexOf("."));
+
+                registerUserDto.setAvatarName(registerUserDto.getUsername() + "_avatar" + extension);
+            }
             this.userService.register(registerUserDto);
             // add the avatar to avatars' dir
             if (avatar != null) {
@@ -102,6 +104,7 @@ public class UserController {
     public String editProfile(@PathVariable("username") String username, RegisterUserDto registerUserDto, Model model) {
         try {
             this.userService.updateProfile(username, registerUserDto);
+
         } catch (UserRegisterException e) {
             String exceptionName = e.getClass().getSimpleName();
             exceptionName = Character.toLowerCase(exceptionName.charAt(0)) + exceptionName.substring(1);
@@ -145,5 +148,45 @@ public class UserController {
         }
 
         return "redirect:/";
+    }
+
+    @GetMapping(value = "/updateProfileAvatar/{username}")
+    @PreAuthorize("isAuthenticated()")
+    public String loadUpdateProfilePicture(Model model, @PathVariable(name = "username") String username) {
+        String currentLoggedUsername = SecurityContextHolder.getContext().getAuthentication().getName();
+        if (!currentLoggedUsername.equals(username)) {
+            return "main/notAllowed/forbidden";
+        }
+
+        UserProfileDto userProfileDto = this.userService.getUserProfileDto(username);
+        model.addAttribute("user", userProfileDto);
+
+        return "main/user/updateProfileAvatar";
+    }
+
+    @PostMapping(value = "/updateProfileAvatar/{username}")
+    @PreAuthorize("isAuthenticated()")
+    public String updateProfileAvatar(@RequestParam(value = "avatar", required = false) MultipartFile avatar,
+                                      @PathVariable(value = "username") String username,
+                                      Model model) {
+
+        if (avatar != null && avatar.getOriginalFilename() != null && !avatar.getOriginalFilename().trim().equals("")) {
+            String extension = avatar.getOriginalFilename()
+                    .substring(avatar.getOriginalFilename().lastIndexOf("."));
+
+            this.userService.updateProfilePicture(username, username + "_avatar" + extension);
+            try {
+                this.fileUploadService.saveAvatar(avatar, username);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            model.addAttribute("invalidAvatar", true);
+            UserProfileDto userProfileDto = this.userService.getUserProfileDto(username);
+            model.addAttribute("user", userProfileDto);
+            return "main/user/updateProfileAvatar";
+        }
+
+        return "redirect:/profile";
     }
 }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update avatar</title>
+    <link rel="stylesheet" href="/styles/bootstrap.css">
+</head>
+<body>
+<div th:include="fragments/navbar"></div>
+<br>
+<div class="jumbotron container">
+
+    <div th:if="${user.avatarName}">
+        <img th:src="'/images/avatars/' + ${user.avatarName}">
+    </div>
+    <div th:unless="${user.avatarName}">
+        <img th:src="'/images/avatars/no-image-available.png'">
+    </div>
+
+    <form method="post" th:action="@{/updateProfileAvatar/{username}(username=${user.getUsername()})}" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Avatar</label>
+            <input type="file" class="form-control-file" name="avatar" multiple>
+            <small id="fileHelp" class="form-text text-muted">Upload your file from your computer.</small>
+        </div>
+
+        <input class="btn btn-primary" type="submit" name="value"
+               value="Edit"/>
+    </form>
+
+    <br>
+    <div th:if="${invalidAvatar}">
+        <div class="alert alert-dismissible alert-warning">
+            <h4 class="alert-heading">Warning!</h4>
+            <p class="mb-0">Please upload an avatar!</p>
+        </div>
+    </div>
+</div>
+
+<footer th:include="fragments/footer"></footer>
+</body>
+</html>

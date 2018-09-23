@@ -2,26 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="529d0096-1d97-4a65-aeb6-fb96a93ea7c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/services/api/FileUploadService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/services/impl/FileUploadServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/avatars/no-image-available.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/avatars/kondakat_avatar.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/avatars/pedal_avatar.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/avatars/user_avatar.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/indexWallpaper.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/ownerLogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/config/AdditionalResourceWebConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/main/user/updateProfileAvatar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Starcraft.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Starcraft.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/config/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/dtos/user_dtos/RegisterUserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/dtos/user_dtos/RegisterUserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/dtos/user_dtos/UserProfileDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/dtos/user_dtos/UserProfileDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/services/api/FileUploadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/services/api/FileUploadService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/services/api/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/services/api/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/services/impl/FileUploadServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/services/impl/FileUploadServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/services/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/avatars/no-image-available.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/avatars/no-image-available.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/indexWallpaper.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/indexWallpaper.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/ownerLogo.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/ownerLogo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/user/editProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/user/editProfile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/user/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/user/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/user/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/user/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/app/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/controllers/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/dtos/user_dtos/RegisterUserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/dtos/user_dtos/RegisterUserDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/models/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/services/api/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/services/api/UserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/app/services/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/services/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/user/editProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/user/editProfile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/main/user/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/user/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/main/user/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/user/register.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,44 +61,45 @@
         <counts>
           <entry key="class" value="3" />
           <entry key="css" value="6" />
-          <entry key="html" value="138" />
-          <entry key="java" value="213" />
-          <entry key="jpg" value="1" />
-          <entry key="png" value="3" />
+          <entry key="gif" value="1" />
+          <entry key="html" value="150" />
+          <entry key="java" value="234" />
+          <entry key="jpg" value="13" />
+          <entry key="png" value="5" />
           <entry key="properties" value="7" />
-          <entry key="xml" value="1" />
+          <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="3" />
           <entry key="CSS" value="6" />
-          <entry key="HTML" value="138" />
-          <entry key="Image" value="4" />
-          <entry key="JAVA" value="213" />
+          <entry key="HTML" value="150" />
+          <entry key="Image" value="19" />
+          <entry key="JAVA" value="234" />
           <entry key="Properties" value="7" />
-          <entry key="XML" value="1" />
+          <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="10" />
           <entry key="dummy" value="10" />
-          <entry key="html" value="7676" />
-          <entry key="java" value="13013" />
+          <entry key="html" value="8307" />
+          <entry key="java" value="14414" />
           <entry key="properties" value="226" />
-          <entry key="txt" value="580" />
-          <entry key="xml" value="1" />
+          <entry key="txt" value="655" />
+          <entry key="xml" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="10" />
-          <entry key="HTML" value="7676" />
-          <entry key="JAVA" value="13013" />
-          <entry key="PLAIN_TEXT" value="590" />
+          <entry key="HTML" value="8307" />
+          <entry key="JAVA" value="14414" />
+          <entry key="PLAIN_TEXT" value="665" />
           <entry key="Properties" value="226" />
-          <entry key="XML" value="1" />
+          <entry key="XML" value="6" />
         </counts>
       </usages-collector>
     </session>
@@ -101,65 +107,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/services/impl/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="252" column="48" lean-forward="true" selection-start-line="252" selection-start-column="48" selection-end-line="252" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/images/avatars/no-image-available.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/models/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="141" column="29" selection-start-line="141" selection-start-column="29" selection-end-line="141" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2899#2900#0" expanded="true" />
-                <element signature="e#2932#2933#0" expanded="true" />
-                <element signature="e#2963#2964#0" expanded="true" />
-                <element signature="e#3017#3018#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/dtos/user_dtos/RegisterUserDto.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
-              <caret line="107" column="35" selection-start-line="107" selection-start-column="35" selection-end-line="107" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2179#2180#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/controllers/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="78" column="45" selection-start-line="78" selection-start-column="45" selection-end-line="78" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/app/services/impl/FileUploadServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="252">
+              <caret line="14" column="69" lean-forward="true" selection-start-line="14" selection-start-column="69" selection-end-line="14" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -168,43 +119,79 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/user/register.html">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/config/WebSecurityConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="17" column="82" selection-start-line="17" selection-start-column="82" selection-end-line="17" selection-end-column="82" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="27" column="27" lean-forward="true" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+            <state relative-caret-position="720">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/user/profile.html">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/config/AdditionalResourceWebConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+            <state relative-caret-position="198">
+              <caret line="11" column="49" lean-forward="true" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/dtos/user_dtos/UserProfileDto.java">
+        <entry file="file://$PROJECT_DIR$/images/avatars/user_avatar.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
-              <caret line="15" column="29" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="29" />
+              <caret line="12" column="50" lean-forward="true" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jrt://C:/Program Files/Java/jdk-10.0.2!/jdk.hotspot.agent/images/toolbarButtonGraphics/general/Save16.gif">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/images/avatars/kondakat_avatar.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/controllers/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="178" column="44" lean-forward="true" selection-start-line="178" selection-start-column="44" selection-end-line="178" selection-end-column="44" />
               <folding>
-                <element signature="e#1525#1526#0" expanded="true" />
-                <element signature="e#1558#1559#0" expanded="true" />
-                <element signature="e#1610#1611#0" expanded="true" />
-                <element signature="e#1654#1655#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/controllers/CommentController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="32" column="45" lean-forward="true" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/user/profile.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -214,8 +201,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -239,6 +226,10 @@
       <find>reg</find>
       <find>path</find>
       <find>UserProfileDto</find>
+      <find>up</find>
+      <find>edit</find>
+      <find>avatar</find>
+      <find>avat</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -247,10 +238,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/templates/main/admin/editProfilePrivileges.html" />
-        <option value="$PROJECT_DIR$/src/main/java/app/controllers/AdminController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/main/admin/changePrivilege.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/main/admin/adminPanel.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/main/articles.html" />
         <option value="$PROJECT_DIR$/src/main/java/app/services/impl/ArticleServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/app/pages/Page.java" />
@@ -280,24 +267,28 @@
         <option value="$PROJECT_DIR$/src/main/java/app/services/api/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/app/services/impl/NotificationServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/app/controllers/ArticlesController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/main/user/editProfile.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/fragments/footer.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/main/admin/ownerInformation.html" />
         <option value="$PROJECT_DIR$/src/main/java/app/controllers/HomeController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/app/config/WebSecurityConfig.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/main/news/viewArticle.html" />
         <option value="$PROJECT_DIR$/src/main/java/app/controllers/CommentController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/main/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/main/test.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/main/user/register.html" />
         <option value="$PROJECT_DIR$/src/main/java/app/dtos/user_dtos/RegisterUserDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/app/services/api/FileUploadService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/app/services/impl/FileUploadServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/app/dtos/user_dtos/UserProfileDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/app/models/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/services/api/FileUploadService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/main/user/editProfile.html" />
         <option value="$PROJECT_DIR$/src/main/java/app/services/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/main/user/updateProfileAvatar.html" />
+        <option value="$PROJECT_DIR$/src/main/java/app/controllers/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/main/user/profile.html" />
+        <option value="$PROJECT_DIR$/src/main/java/app/config/WebSecurityConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/images/asd.html" />
+        <option value="$PROJECT_DIR$/src/main/java/app/config/AdditionalResourceWebConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/app/services/impl/FileUploadServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -340,6 +331,11 @@
             <path>
               <item name="Starcraft" type="b2602c69:ProjectViewProjectNode" />
               <item name="Starcraft" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Starcraft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Starcraft" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -370,26 +366,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Starcraft" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Starcraft" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="dtos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Starcraft" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Starcraft" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="dtos" type="462c0819:PsiDirectoryNode" />
-              <item name="user_dtos" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Starcraft" type="b2602c69:ProjectViewProjectNode" />
@@ -427,49 +404,7 @@
             </path>
             <path>
               <item name="Starcraft" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Starcraft" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Starcraft" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Starcraft" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="avatars" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Starcraft" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Starcraft" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Starcraft" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Starcraft" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Starcraft" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Starcraft" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -485,7 +420,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537624790033" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537682994968" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -494,13 +429,16 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ivan\eclipse-workspace\Starcraft-News-SpringApp\Starcraft\images" />
+      <recent name="C:\Users\Ivan\eclipse-workspace\Starcraft-News-SpringApp\Starcraft\src\main\images\avatars" />
+      <recent name="C:\Users\Ivan\eclipse-workspace\Starcraft-News-SpringApp\Starcraft\src\main\resources\public\images" />
       <recent name="C:\Users\Ivan\eclipse-workspace\Starcraft-News-SpringApp\Starcraft\src\main\resources\static\images\avatars" />
       <recent name="C:\Users\Ivan\eclipse-workspace\Starcraft-News-SpringApp\Starcraft\src\main\resources\static\images" />
-      <recent name="C:\Users\Ivan\eclipse-workspace\Starcraft-News-SpringApp\Starcraft\src\main\resources\templates" />
-      <recent name="C:\Users\Ivan\eclipse-workspace\Starcraft-News-SpringApp\Starcraft\src\main\resources\static\homePageResources" />
-      <recent name="C:\Users\Ivan\eclipse-workspace\Starcraft-News-SpringApp\Starcraft\src\main\resources\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ivan\eclipse-workspace\Starcraft-News-SpringApp\Starcraft" />
+      <recent name="C:\Users\Ivan\eclipse-workspace\Starcraft-News-SpringApp\Starcraft\src\main\java" />
+      <recent name="C:\Users\Ivan\eclipse-workspace\Starcraft-News-SpringApp\Starcraft\src\main\resources\public\error" />
       <recent name="C:\Users\Ivan\eclipse-workspace\Starcraft-News-SpringApp\Starcraft\src\main\resources\templates\main" />
       <recent name="C:\Users\Ivan\eclipse-workspace\Starcraft-News-SpringApp\Starcraft\src\main\resources\static" />
     </key>
@@ -552,7 +490,7 @@
       <workItem from="1537449554676" duration="84000" />
       <workItem from="1537450686751" duration="21688000" />
       <workItem from="1537615396312" duration="410000" />
-      <workItem from="1537616349644" duration="8310000" />
+      <workItem from="1537616349644" duration="16781000" />
     </task>
     <task id="LOCAL-00001" summary="layout changed">
       <created>1537298164592</created>
@@ -673,14 +611,29 @@
       <option name="project" value="LOCAL" />
       <updated>1537482028897</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Users now have profile pictures">
+      <created>1537624817251</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1537624817251</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Better design for users' avatars">
+      <created>1537625120522</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1537625120522</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86474000" />
+    <option name="totallyTimeSpent" value="94945000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4976415" visible="true" weight="0.2671141" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -699,7 +652,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3286119" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.3286119" />
@@ -768,7 +721,9 @@
     <MESSAGE value="Sends emails when a new article is published." />
     <MESSAGE value="Nice index page" />
     <MESSAGE value="Nice index page, better view for comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nice index page, better view for comments" />
+    <MESSAGE value="Users now have profile pictures" />
+    <MESSAGE value="Better design for users' avatars" />
+    <option name="LAST_COMMIT_MESSAGE" value="Better design for users' avatars" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -807,15 +762,36 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/app/services/impl/UserServiceImpl.java</url>
-          <line>65</line>
+          <line>66</line>
           <properties />
           <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/controllers/UserController.java</url>
+          <line>172</line>
+          <properties />
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>avatar.getOriginalFilename().trim().equals(&quot;&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>avatar.getOriginalFilename()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>avatar.getName()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>pages[0].getArticles()</expression-string>
         <language-id>JAVA</language-id>
@@ -829,142 +805,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/exceptions/user/InvalidLastNameException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/exceptions/user/InvalidUsernameException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/exceptions/user/PasswordsDoNotMatchException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/exceptions/user/InvalidPasswordException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/exceptions/user/EmailTakenException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/exceptions/user/UsernameTakenException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/repositories/HibernateRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.0.7.RELEASE/spring-core-5.0.7.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="104" selection-start-line="104" selection-end-line="104" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/exceptions/user/UserRegisterException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/services/api/NotificationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/StartUp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/controllers/SecurityController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/config/BeanConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/services/impl/CommentServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/services/impl/ArticleServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/services/impl/NotificationServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1098">
-          <caret line="59" column="44" lean-forward="true" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/services/impl/PrivilegeServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1026">
-          <caret line="67" column="54" lean-forward="true" selection-start-line="67" selection-start-column="54" selection-end-line="67" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/admin/adminPanel.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/homePageResources/css/small-business.css" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fragments/navbar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -1009,13 +849,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/config/WebSecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="26" column="262" selection-start-line="26" selection-start-column="262" selection-end-line="26" selection-end-column="262" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/app/config/DIConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1023,9 +856,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/user/deleteProfile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="69" column="35" lean-forward="true" selection-start-line="69" selection-start-column="35" selection-end-line="69" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/images/avatars/667533.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/dtos/user_dtos/UserProfileDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="15" column="29" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="29" />
+          <folding>
+            <element signature="e#1525#1526#0" expanded="true" />
+            <element signature="e#1558#1559#0" expanded="true" />
+            <element signature="e#1610#1611#0" expanded="true" />
+            <element signature="e#1654#1655#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/images/avatars/no-image-available.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="27" column="27" lean-forward="true" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/controllers/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="53" column="33" lean-forward="true" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/app/controllers/ArticlesController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
+        <state relative-caret-position="318">
           <caret line="132" column="35" lean-forward="true" selection-start-line="132" selection-start-column="35" selection-end-line="132" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1035,8 +918,158 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/app/controllers/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="835">
-          <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
+        <state relative-caret-position="264">
+          <caret line="44" column="27" lean-forward="true" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/services/api/PrivilegeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/services/api/NotificationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/news.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/dtos/user_dtos/RegisterUserDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="38" column="29" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2146#2147#0" expanded="true" />
+            <element signature="e#2179#2180#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/user/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="26" column="18" lean-forward="true" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/controllers/SecurityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/services/api/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/models/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="143" selection-start-line="143" selection-end-line="143" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2963#2964#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/services/api/FileUploadService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/images/avatars/kondakat_avatar.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/user/updateProfileAvatar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/user/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="136" column="11" selection-start-line="136" selection-start-column="11" selection-end-line="139" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/images/avatars/user_avatar.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/images/avatars/pedal_avatar.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/user/editProfile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/error/404.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/images/avatars/kondakat_avatar.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/images/avatars/no-image-available.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/services/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="112" selection-start-line="112" selection-end-line="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/images/avatars/pedal_avatar.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/images/avatars/user_avatar.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/user/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/controllers/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="178" column="44" lean-forward="true" selection-start-line="178" selection-start-column="44" selection-end-line="178" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1053,157 +1086,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/controllers/AdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="53" column="33" lean-forward="true" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/user/editProfile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="75" column="33" lean-forward="true" selection-start-line="75" selection-start-column="33" selection-end-line="75" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/user/deleteProfile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="69" column="35" lean-forward="true" selection-start-line="69" selection-start-column="35" selection-end-line="69" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/news.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/user/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="26" column="18" lean-forward="true" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/services/api/FileUploadService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/services/api/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/images/avatars/667533.jpg">
+    <entry file="file://$PROJECT_DIR$/src/main/java/avatars/user_avatar.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/models/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="141" column="29" selection-start-line="141" selection-start-column="29" selection-end-line="141" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2899#2900#0" expanded="true" />
-            <element signature="e#2932#2933#0" expanded="true" />
-            <element signature="e#2963#2964#0" expanded="true" />
-            <element signature="e#3017#3018#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/dtos/user_dtos/RegisterUserDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="107" column="35" selection-start-line="107" selection-start-column="35" selection-end-line="107" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2179#2180#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/dtos/user_dtos/UserProfileDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="15" column="29" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="29" />
-          <folding>
-            <element signature="e#1525#1526#0" expanded="true" />
-            <element signature="e#1558#1559#0" expanded="true" />
-            <element signature="e#1610#1611#0" expanded="true" />
-            <element signature="e#1654#1655#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/controllers/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="78" column="45" selection-start-line="78" selection-start-column="45" selection-end-line="78" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/services/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="252" column="48" lean-forward="true" selection-start-line="252" selection-start-column="48" selection-end-line="252" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/images/avatars/no-image-available.png">
+    <entry file="file://$PROJECT_DIR$/src/main/java/avatars/no-image-available.png">
       <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/asd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/avatars/kondakat_avatar.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="jrt://C:/Program Files/Java/jdk-10.0.2!/jdk.hotspot.agent/images/toolbarButtonGraphics/general/Save16.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="50" lean-forward="true" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/config/WebSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/app/services/impl/FileUploadServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="252">
+          <caret line="14" column="69" lean-forward="true" selection-start-line="14" selection-start-column="69" selection-end-line="14" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/user/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="17" column="82" selection-start-line="17" selection-start-column="82" selection-end-line="17" selection-end-column="82" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/images/avatars/user_avatar.jpg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/index.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/config/AdditionalResourceWebConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="27" column="27" lean-forward="true" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main/user/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+        <state relative-caret-position="198">
+          <caret line="11" column="49" lean-forward="true" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

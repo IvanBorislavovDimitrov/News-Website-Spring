@@ -15,6 +15,8 @@ public interface UserService {
 	
 	UserProfileDto getUserProfileDto(String username);
 
+	void updateProfilePicture(String username, String avatarName);
+
 	void updateProfile(String username, RegisterUserDto registerUserDto);
 
 	void delete(String username);
