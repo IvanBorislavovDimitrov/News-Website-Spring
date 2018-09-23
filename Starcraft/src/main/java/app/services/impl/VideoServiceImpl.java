@@ -19,12 +19,13 @@ public class VideoServiceImpl implements VideoService {
 
 
     @Override
-    public void save(String name) {
+    public void save(String name, String thumbnailName) {
         Video video = new Video();
         if (name == null) {
             throw new IllegalArgumentException("Name mustn't be null");
         }
         video.setName(name);
+        video.setThumbnailName(thumbnailName);
 
         this.videoRepository.save(video);
     }

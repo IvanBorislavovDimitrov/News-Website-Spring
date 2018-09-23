@@ -2,5 +2,5 @@ package app.services.api;
 
 public interface VideoService {
 
-    void save(String name);
+    void save(String name, String thumbnailName);
 }
