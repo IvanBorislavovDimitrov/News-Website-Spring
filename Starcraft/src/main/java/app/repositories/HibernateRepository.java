@@ -96,7 +96,7 @@ public class HibernateRepository<T> implements GenericRepository<T> {
         Session session = this.sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        T entity = session.get(this.entityClass, id);
+        T entity = this.getById(id);
 
         session.delete(entity);
 

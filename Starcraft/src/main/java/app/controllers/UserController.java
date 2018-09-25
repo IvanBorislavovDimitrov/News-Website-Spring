@@ -48,7 +48,8 @@ public class UserController {
             }
             this.userService.register(registerUserDto);
             // add the avatar to avatars' dir
-            if (avatar != null) {
+            if (avatar != null && avatar.getOriginalFilename() != null
+                    && !avatar.getOriginalFilename().trim().equals("")) {
                 this.fileUploadService.saveAvatar(avatar, registerUserDto.getUsername());
             }
             // send a notification

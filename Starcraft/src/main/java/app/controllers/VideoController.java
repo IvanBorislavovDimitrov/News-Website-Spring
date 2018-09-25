@@ -2,11 +2,9 @@ package app.controllers;
 
 import app.dtos.video_dtos.VideoCommentDto;
 import app.dtos.video_dtos.VideoDto;
-import app.models.Video;
-import app.models.VideoComment;
-import app.pages.Page;
 import app.pages.PageVideos;
 import app.services.api.FileUploadService;
+import app.services.api.VideoCommentService;
 import app.services.api.VideoService;
 import app.utilities.Helper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,11 +27,13 @@ public class VideoController {
     private static final int MAX_VIDEO_ON_PAGE = 6;
     private final VideoService videoService;
     private final FileUploadService fileUploadService;
+    private final VideoCommentService videoCommentService;
 
     @Autowired
-    public VideoController(VideoService videoService, FileUploadService fileUploadService) {
+    public VideoController(VideoService videoService, FileUploadService fileUploadService, VideoCommentService videoCommentService) {
         this.videoService = videoService;
         this.fileUploadService = fileUploadService;
+        this.videoCommentService = videoCommentService;
     }
 
     @GetMapping(value = "/uploadVideo")
@@ -108,6 +108,66 @@ public class VideoController {
     public String addCommentToVideo(@PathVariable(name = "videoId") String videoId, Model model, VideoCommentDto videoComment) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         this.videoService.addComment(Integer.parseInt(videoId), videoComment, username);
+
+        return "redirect:/watchVideo/" + videoId;
+    }
+
+    @GetMapping(value = "/editVideoComment/{commentId}/{videoId}")
+    @PreAuthorize("isAuthenticated()")
+    public String loadEditVideoCommentPage(@PathVariable(value = "commentId") int commentId,
+                                           @PathVariable(value = "videoId") int videoId,
+                                           Model model) {
+        String currentLoggedUser = SecurityContextHolder.getContext().getAuthentication().getName();
+        VideoDto videoDto = this.videoService.getById(videoId);
+        VideoCommentDto videoCommentDto = videoDto.getVideoComments().stream()
+                .filter(c -> c.getId() == commentId)
+                .findFirst()
+                .orElse(null);
+        if (!currentLoggedUser.equals(videoCommentDto.getUsername())) {
+            return "main/notAllowed/forbidden";
+        }
+
+        model.addAttribute("comment", videoCommentDto);
+
+        return "main/videos/editVideoComment";
+    }
+
+    @PostMapping(value = "/editVideoComment/{commentId}/{videoId}")
+    @PreAuthorize("isAuthenticated()")
+    public String editVideoComment(@PathVariable(value = "commentId") int commentId,
+                                   @PathVariable(value = "videoId") int videoId,
+                                   VideoCommentDto videoCommentDto) {
+        this.videoCommentService.update(commentId, videoCommentDto);
+
+        return "redirect:/watchVideo/" + videoId;
+    }
+
+    @GetMapping(value = "/deleteVideoComment/{commentId}/{videoId}")
+    @PreAuthorize("isAuthenticated()")
+    public String loadDeleteVideoCommentPage(@PathVariable(value = "commentId") int commentId,
+                                             @PathVariable(value = "videoId") int videoId,
+                                             Model model) {
+        String currentLoggedUser = SecurityContextHolder.getContext().getAuthentication().getName();
+        VideoDto videoDto = this.videoService.getById(videoId);
+        VideoCommentDto videoCommentDto = videoDto.getVideoComments().stream()
+                .filter(c -> c.getId() == commentId)
+                .findFirst()
+                .orElse(null);
+        if (!currentLoggedUser.equals(videoCommentDto.getUsername())) {
+            return "main/notAllowed/forbidden";
+        }
+
+        model.addAttribute("comment", videoCommentDto);
+
+        return "main/videos/deleteVideoComment";
+    }
+
+    @PostMapping(value = "/deleteVideoComment/{commentId}/{videoId}")
+    @PreAuthorize("isAuthenticated()")
+    public String deleteVideoComment(@PathVariable(value = "commentId") int commentId,
+                                   @PathVariable(value = "videoId") int videoId,
+                                   VideoCommentDto videoCommentDto) {
+        this.videoCommentService.delete(commentId);
 
         return "redirect:/watchVideo/" + videoId;
     }

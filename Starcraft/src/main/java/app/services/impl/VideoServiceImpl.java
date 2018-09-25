@@ -65,14 +65,23 @@ public class VideoServiceImpl implements VideoService {
             videoDto.setId(v.getId());
             videoDto.setLikes(v.getLikes());
             videoDto.setName(v.getName());
-            v.getVideoComments().forEach(c -> {
-                VideoCommentDto videoCommentDto = this.modelMapper.map(c, VideoCommentDto.class);
-                videoDto.getVideoComments().add(videoCommentDto);
-            });
+            this.attachVideoComments(v, videoDto);
             videoDtos.add(videoDto);
         });
 
         return videoDtos;
+    }
+
+    private void attachVideoComments(Video v, VideoDto videoDto) {
+        v.getVideoComments().forEach(c -> {
+            VideoCommentDto videoCommentDto = new VideoCommentDto();
+            videoCommentDto.setDate(c.getDate());
+            videoCommentDto.setUsername(c.getUser().getUsername());
+            videoCommentDto.setVideo(v.getId());
+            videoCommentDto.setId(c.getId());
+            videoCommentDto.setValue(c.getValue());
+            videoDto.getVideoComments().add(videoCommentDto);
+        });
     }
 
     @Override
@@ -85,11 +94,7 @@ public class VideoServiceImpl implements VideoService {
         videoDto.setLikes(video.getLikes());
         videoDto.setName(video.getName());
 
-        video.getVideoComments().forEach(c -> {
-            VideoCommentDto videoCommentDto = this.modelMapper.map(c, VideoCommentDto.class);
-            videoCommentDto.setUsername(c.getUser().getUsername());
-            videoDto.getVideoComments().add(videoCommentDto);
-        });
+        this.attachVideoComments(video, videoDto);
 
         return videoDto;
     }

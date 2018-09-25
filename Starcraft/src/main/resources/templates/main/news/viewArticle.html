@@ -1,4 +1,4 @@
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <title>View article</title>
 <head xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
@@ -10,7 +10,7 @@
 <body>
 <div th:include="fragments/navbar"></div>
 <br>
-<div class="jumbotron container">
+<div class="jumbotron-fluid  container">
     <h3 class="display-3" th:text="${article.getName()}"></h3>
     <h4 class="lead" th:text="${article.getDescription()}"></h4>
     <hr class="my-4">
@@ -21,7 +21,6 @@
            th:href="@{/addComment/} + ${article.getId()} + '/' + ${username}"
            role="button">Add comment</a>
     </p>
-
     <div sec:authorize="hasRole('ROLE_ADMIN')">
         <a class="btn btn-primary btn-lg"
            th:href="@{/editArticle/} + ${article.getId()}" role="button">Edit</a>
@@ -31,40 +30,42 @@
     <br>
     <h2>Comments:</h2>
     <br>
-    <div class="row">
+    <div class="container">
+        <div class="row">
+            <div th:each="c : ${comments}">
+                <div class="col-sm-1">
+                    <div class="card border-primary mb-3" style="width: 31rem; height: 17rem">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="btn btn-group-justified btn-md" th:text="${c.getUsername()}"></div>
+                                <div th:if="${c.getUsername()} == ${#authentication.getPrincipal().getUsername()}">
+                                    <a class="btn btn-primary btn-md" th:href="@{/editComment/} + ${c.getId()}">Edit</a>
+                                </div>
+                                <br>
+                                <div sec:authorize="hasRole('ROLE_USER')">
+                                    <div th:if="${c.getUsername()} == ${#authentication.getPrincipal().getUsername()}">
+                                        <a class="btn btn-danger btn-md"
+                                           th:href="@{/deleteComment/} + ${c.getId()}">Delete</a>
+                                    </div>
+                                </div>
 
-        <div th:each="c : ${comments}">
-            <div class="card border-primary mb-3" style="width: 23rem; height: 17rem">
-                <div class="card-header">
-                    <div class="row">
-                    <div class="btn btn-group-justified btn-md" th:text="${c.getUsername()}"></div>
-                        <div th:if="${c.getUsername()} == ${#authentication.getPrincipal().getUsername()}">
-                            <a class="btn btn-primary btn-md" th:href="@{/editComment/} + ${c.getId()}">Edit</a>
-                        </div>
-                        <br>
-                        <div sec:authorize="hasRole('ROLE_USER')">
-                            <div th:if="${c.getUsername()} == ${#authentication.getPrincipal().getUsername()}">
-                                <a class="btn btn-danger btn-md"
-                                   th:href="@{/deleteComment/} + ${c.getId()}">Delete</a>
+                                <div sec:authorize="hasRole('ROLE_ADMIN')">
+                                    <a class="btn btn-danger btn-md"
+                                       th:href="@{/deleteComment/} + ${c.getId()}">Delete</a>
+                                </div>
                             </div>
                         </div>
-
-                        <div sec:authorize="hasRole('ROLE_ADMIN')">
-                            <a class="btn btn-danger btn-md" th:href="@{/deleteComment/} + ${c.getId()}">Delete</a>
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${c.getValue()}"></h5>
+                            <p class="card-text" th:text="${c.getDate()}"></p>
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title" th:text="${c.getValue()}"></h5>
-                    <p class="card-text" th:text="${c.getDate()}"></p>
-
-                </div>
             </div>
+            <br>
         </div>
-        <br>
     </div>
 </div>
-
 <footer th:include="fragments/footer"></footer>
 </body>
 </html>

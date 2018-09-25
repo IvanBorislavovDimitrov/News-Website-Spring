@@ -1,0 +1,38 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<title>Add comment</title>
+<head xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <meta charset="UTF-8">
+    <title>Edit comment</title>
+
+    <link rel="stylesheet" href="/styles/bootstrap.css">
+
+</head>
+<body>
+<div th:include="fragments/navbar"></div>
+<br>
+
+<div class="jumbotron container">
+    <div class="container body-content span=8 offset=2">
+        <h1>Edit comment</h1>
+        <form method="post" th:action="@{/editVideoComment} + '/' + ${comment.id} + '/' + ${comment.getVideo()}">
+
+            <div class="form-group">
+                <label>Description: </label>
+                <div class="col-sm-4">
+					<textarea class="form-control" name="value" rows="8"
+                              th:inline="text">[[${comment.getValue()}]]</textarea>
+                </div>
+            </div>
+
+            <a class="btn btn-danger btn-md"
+               th:href="@{/watchVideo/{id}(id=${comment.getId()})}" role="button">Cancel</a>
+            <button type="submit" class="btn btn-primary">Edit</button>
+        </form>
+    </div>
+</div>
+<br>
+<footer th:include="fragments/footer"></footer>
+</body>
+</html>

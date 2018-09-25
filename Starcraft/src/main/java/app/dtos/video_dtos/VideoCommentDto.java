@@ -1,7 +1,5 @@
 package app.dtos.video_dtos;
 
-import app.models.Video;
-
 import java.util.Date;
 
 public class VideoCommentDto {
@@ -12,7 +10,7 @@ public class VideoCommentDto {
 
     private String username;
 
-    private Video video;
+    private int videoId;
 
     private Date date;
 
@@ -43,12 +41,12 @@ public class VideoCommentDto {
         this.username = username;
     }
 
-    public Video getVideo() {
-        return video;
+    public int getVideo() {
+        return videoId;
     }
 
-    public void setVideo(Video video) {
-        this.video = video;
+    public void setVideo(int video) {
+        this.videoId = video;
     }
 
     public Date getDate() {

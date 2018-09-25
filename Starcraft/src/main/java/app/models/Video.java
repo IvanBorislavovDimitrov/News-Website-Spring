@@ -1,5 +1,8 @@
 package app.models;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
@@ -26,6 +29,7 @@ public class Video {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "video", targetEntity = VideoComment.class, fetch = FetchType.EAGER,
             orphanRemoval = true)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<VideoComment> videoComments;
 
     public Video() {
